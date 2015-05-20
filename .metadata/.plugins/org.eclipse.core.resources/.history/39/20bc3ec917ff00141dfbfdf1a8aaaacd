@@ -1,0 +1,12 @@
+package com.epam.newyeargift.entity;
+
+public class Caramel extends Candy {
+	private Taste taste;
+	private Color color;
+	
+	public Caramel(String name, int weight, int shugarAmount) {
+		super(name, weight, shugarAmount);
+		// TODO Auto-generated constructor stub
+	}
+
+}

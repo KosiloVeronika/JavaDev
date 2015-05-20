@@ -1,0 +1,30 @@
+package com.epam.newyeargift.entity;
+
+public class Caramel extends Candy {
+	private Taste taste;
+	private Color color;
+	private CaramelType caramelType;
+	
+	public Caramel(String name, int weight, int shugarAmount, Color color, CaramelType caramelType) {
+		super(name, weight, shugarAmount);
+		this.color = color;
+		this.caramelType = caramelType;
+	}
+
+	public Taste getTaste() {
+		return taste;
+	}
+
+	public void setTaste(Taste taste) {
+		this.taste = taste;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
+	}
+
+}

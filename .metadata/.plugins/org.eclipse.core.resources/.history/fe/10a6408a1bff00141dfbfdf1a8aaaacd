@@ -1,0 +1,5 @@
+package com.epam.newyeargift.entity;
+
+public class ParameterException extends Exception {
+
+}

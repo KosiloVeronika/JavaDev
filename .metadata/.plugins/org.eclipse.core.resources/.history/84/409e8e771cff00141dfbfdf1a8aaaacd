@@ -1,0 +1,10 @@
+package com.epam.newyeargift.entity;
+
+public class Iris extends Candy {
+
+	public Iris(String name, int weight, int shugarAmount) {
+		super(name, weight, shugarAmount);
+		// TODO Auto-generated constructor stub
+	}
+
+}
