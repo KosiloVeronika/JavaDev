@@ -6,6 +6,7 @@ public abstract class Candy {
 	private int shugarAmount;
 
 	public Candy(String name, int weight, int shugarAmount) throws ParameterException {
+		super();
 		this.name = name;
 		setWeight(weight);
 		setShugarAmount(shugarAmount);
