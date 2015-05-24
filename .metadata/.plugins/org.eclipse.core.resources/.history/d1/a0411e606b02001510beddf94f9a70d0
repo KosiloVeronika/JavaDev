@@ -1,0 +1,66 @@
+package com.epam.newyeargift.view;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.List;
+
+import com.epam.newyeargift.bean.Response;
+import com.epam.newyeargift.command.Commands;
+import com.epam.newyeargift.entity.Candy;
+
+public class Reporter {
+	
+	public static void report(Commands command, Response response) {
+		try(BufferedWriter writer = new BufferedWriter(new FileWriter("Information.txt", true))) {
+			String info = "";
+			List<Candy> candies = null;
+			int sum;
+			switch (command) {
+			case CREATE_GIFT:
+				info = response.getData().toString() + "\n";
+				break;
+			case SORT_BY_WEIGHT:
+				info = response.getData().toString() + "\n";
+				break;
+			case ADD_CANDIES:
+				info = response.getData().toString() + "\n";
+				break;
+			case SHOW_ALL:
+				candies = (List<Candy>) response.getData();
+				for(Candy c : candies) {
+					info += c.toString() + "\n";
+				}
+				break;
+			case FIND_BY_SHUGAR_AMOUNT:
+				candies = (List<Airplane>) response.getParameter(ResponseEnum.AIRPLANES_LIST);
+				for(Airplane airplane : candies) {
+					info += airplane.toString() + "\n";
+				}
+				break;
+			case CALCULATE_GENERAL_BEARING_CAPACITY:
+				sum = (int) response.getParameter(ResponseEnum.SUM);
+				info += sum + "\n";
+				break;
+			case CALCULATE_GENERAL_CAPACITY:
+				sum = (int) response.getParameter(ResponseEnum.SUM);
+				info += sum + "\n";
+				break;
+			case SORT_AIRPLAINS_BY_MAX_RANGE:
+				info = response.getParameter(ResponseEnum.IS_OK).toString() + "\n";
+				break;
+			case LOAD_FROM_HARDCODE:
+				info = response.getParameter(ResponseEnum.IS_OK).toString() + "\n";
+				break;
+			case LOAD_WITH_SAX:
+				info = response.getParameter(ResponseEnum.IS_OK).toString() + "\n";
+				break;
+			default:
+				throw new LogicalException("Enum doesn't contain this value.");
+			}		
+			info = command + "\n" + info;
+			writer.write(info);
+		} catch (IOException | LogicalException e) {
+			LOG.error(e);
+		}
+	}
+}

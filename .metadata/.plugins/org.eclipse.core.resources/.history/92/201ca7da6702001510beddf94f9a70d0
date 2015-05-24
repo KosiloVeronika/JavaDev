@@ -1,0 +1,12 @@
+package com.epam.newyeargift.view;
+
+import com.epam.newyeargift.controller.Controller;
+
+public class View {
+	private final Controller controller;
+	
+	public View(Controller controller) {
+		this.controller = controller;
+	}
+	
+}

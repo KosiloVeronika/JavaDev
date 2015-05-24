@@ -1,0 +1,21 @@
+package com.epam.newyeargift.command;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class CommandFactory {
+	
+private static final Map<Commands, Command> commands = new HashMap<>();
+	
+	static {
+		commands.put(Commands.COUNT_WEIGHT, new CommandCountWeight());
+		commands.put(Commands.FIND_BY_SHUGAR_AMOUNT, new CommandFind());
+		commands.put(CommandEnum.STAX_PARSER, new StaxParserCommand());
+		commands.put(CommandEnum.FROM_DB, new DatabaseCommand());
+	}
+	
+	public static Command getCommand(CommandEnum commandName) {
+		return commands.get(commandName);
+	}
+
+}

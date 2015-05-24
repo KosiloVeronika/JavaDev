@@ -1,0 +1,17 @@
+package com.epam.newyeargift.logic;
+
+import com.epam.newyeargift.entity.*;
+
+public class CandyFactory {
+	public static Candy createCandy(String type, CandyProperties properties) {
+		CandyType candyType = CandyType.valueOf(type.toUpperCase());
+		switch(candyType) {
+		case CARAMEL: return new Caramel();
+		case CHOCOLATE: return new Chocolate();
+		case JELLY: return new Jelly();
+		}
+		
+		return null;
+	}
+
+}

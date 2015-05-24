@@ -1,0 +1,10 @@
+package com.epam.newyeargift.view;
+
+import com.epam.newyeargift.bean.Response;
+import com.epam.newyeargift.command.Commands;
+
+public class Reporter {
+	public static void report(Commands command, Response response) {
+		
+	}
+}

@@ -1,0 +1,31 @@
+package com.epam.newyeargift.bean;
+
+public class Request {
+	private Command command;
+	private Object value;
+	
+	public Request() {
+		
+	}
+
+	public Request(Command command, Object value) {
+		this.command = command;
+		this.value = value;
+	}
+
+	public Command getCommand() {
+		return command;
+	}
+
+	public void setCommand(Command command) {
+		this.command = command;
+	}
+
+	public Object getValue() {
+		return value;
+	}
+
+	public void setValue(Object value) {
+		this.value = value;
+	}
+}

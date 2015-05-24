@@ -1,12 +1,14 @@
 package com.epam.newyeargift.entity;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Collection;
+import java.util.Collections;
 
 public class GiftBox {
 	private Color boxColor;
-	private ArrayList<Candy> candies;
+	private List<Candy> candies;
 	
-	public GiftBox(Color boxColor, ArrayList<Candy> candies) {
+	public GiftBox(Color boxColor, List<Candy> candies) {
 		this.boxColor = boxColor;
 		this.candies = candies;
 	}
@@ -19,13 +21,17 @@ public class GiftBox {
 		this.boxColor = boxColor;
 	}
 
-	
-	public ArrayList<Candy> getCandies() {
-		return candies;
+	public boolean addCandy(Candy candy) {
+		return candies.add(candy);
+	}
+
+	public boolean addCandiesList(Collection<Candy> candies) {
+		return candies.addAll(candies);
+	}
+
+	public List<Candy> getCandies() {
+		return Collections.unmodifiableList(candies);
 	}
 	
-	public void setCandies(ArrayList<Candy> candies) {
-		this.candies = candies;
-	}
 	
 }

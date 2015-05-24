@@ -1,3 +1,15 @@
 1432144529444	Encapsulate field 'taste'
 1432145078983	Encapsulate field 'caramelType'
 1432145845811	Delete element
+1432471763570	Rename type 'ParameterException'
+1432477009937	Encapsulate field 'color'
+1432477014855	Encapsulate field 'caramelType'
+1432477060073	Encapsulate field 'taste'
+1432477087914	Encapsulate field 'filling'
+1432477093152	Encapsulate field 'chocolateType'
+1432480229500	Delete element
+1432501929450	Delete element
+1432502433232	Rename type 'Command'
+1432504562803	Encapsulate field 'minValue'
+1432504567814	Encapsulate field 'maxValue'
+1432509454452	Rename local variable 'airplane'

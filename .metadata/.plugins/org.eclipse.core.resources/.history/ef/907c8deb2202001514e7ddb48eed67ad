@@ -1,0 +1,10 @@
+package com.epam.newyeargift.dao;
+
+import com.epam.newyeargift.entity.GiftBox;
+
+public abstract class Creator {
+	public static GiftBox createGift() {
+		return null;
+	}
+
+}

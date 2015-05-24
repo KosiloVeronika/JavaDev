@@ -5,7 +5,7 @@ public class Caramel extends Candy {
 	private CaramelType caramelType;
 	
 	public Caramel(String name, int weight, int shugarAmount, 
-			       Color color, CaramelType caramelType) throws ParameterException {
+			       Color color, CaramelType caramelType) throws EntityException {
 		super(name, weight, shugarAmount);
 		this.color = color;
 		this.setCaramelType(caramelType);

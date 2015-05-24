@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+<fullyQualifiedTypeName name="org.apache.log4j.LogManager"/>
+<fullyQualifiedTypeName name="org.apache.log4j.xml.DOMConfigurator"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.Candy"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.logic.CandyFactory"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.Caramel"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.logic.CandyProperties"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.dao.Creator"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.GiftBox"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+</qualifiedTypeNameHistroy>

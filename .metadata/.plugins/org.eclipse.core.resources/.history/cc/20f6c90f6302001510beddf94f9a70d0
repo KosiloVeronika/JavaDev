@@ -1,0 +1,14 @@
+package com.epam.newyeargift.command;
+
+import com.epam.newyeargift.bean.Request;
+import com.epam.newyeargift.bean.Response;
+
+public class CommandSortByWeight implements Command {
+
+	@Override
+	public Response processRequest(Request request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

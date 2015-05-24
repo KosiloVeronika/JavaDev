@@ -1,0 +1,14 @@
+package com.epam.newyeargift;
+
+import com.epam.newyeargift.dao.Creator;
+import com.epam.newyeargift.entity.EntityException;
+import com.epam.newyeargift.entity.GiftBox;
+
+public class Main {
+
+	public static void main(String[] args) throws EntityException {
+		GiftBox gift = Creator.createGift();
+
+	}
+
+}

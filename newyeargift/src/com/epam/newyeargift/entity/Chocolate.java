@@ -5,7 +5,7 @@ public class Chocolate extends Candy {
 	private ChocolateType chocolateType;
 	
 	public Chocolate(String name, int weight, int shugarAmount, 
-					 Filling filling, ChocolateType chocolateType ) throws ParameterException {
+					 Filling filling, ChocolateType chocolateType ) throws EntityException {
 		super(name, weight, shugarAmount);
 		this.filling = filling;
 		this.chocolateType = chocolateType;
