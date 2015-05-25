@@ -29,12 +29,14 @@ public class Logic {
 		return result;
 	}
 	
-	public static List<Candy> findCandy(GiftBox gift, int minShugarAmount, int maxShugarAmount) throws LogicException{
+	public static List<Candy> findCandy(GiftBox gift, int minShugarAmount, 
+				  int maxShugarAmount) throws LogicException {
 		List<Candy> result = new ArrayList<Candy>();
 		try {
 			List<Candy> candiesList = gift.getCandies();
 			for (Candy c : candiesList) {
-				if (minShugarAmount < c.getShugarAmount() && c.getShugarAmount() < maxShugarAmount) {
+				if (minShugarAmount < c.getShugarAmount() && 
+					c.getShugarAmount() < maxShugarAmount) {
 					result.add(c);
 				}
 			}
@@ -44,7 +46,7 @@ public class Logic {
 		return result;
 	}
 	
-	public static void sortByWeight(GiftBox gift) throws LogicException{
+	public static void sortByWeight(GiftBox gift) throws LogicException {
 		try {
 			List<Candy> candies = gift.getCandies();
 			List<Candy> modifiableCandies = new ArrayList<Candy>(candies);

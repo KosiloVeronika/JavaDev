@@ -1,6 +1,7 @@
 package com.epam.newyeargift.entity;
 
 public abstract class Candy implements Comparable<Candy> {
+	
 	private String name;
 	private int weight;
 	private int shugarAmount;
@@ -23,7 +24,7 @@ public abstract class Candy implements Comparable<Candy> {
 		return weight;
 	}
 
-	public void setWeight(int weight) throws EntityException{
+	public void setWeight(int weight) throws EntityException {
 		if (weight > 0) {
 			this.weight = weight;
 		} else {

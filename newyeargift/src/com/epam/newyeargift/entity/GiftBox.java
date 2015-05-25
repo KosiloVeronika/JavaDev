@@ -40,8 +40,7 @@ public class GiftBox {
 	
 	@Override
 	public String toString() {
-		String result = "Box color: " + getBoxColor();
-		return result;
+		return String.format("Box color: %s", getBoxColor());
 	}
 	
 	

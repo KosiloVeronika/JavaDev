@@ -1,6 +1,7 @@
 package com.epam.newyeargift.entity;
 
 public class Caramel extends Candy {
+	
 	private Color color;
 	private CaramelType caramelType;
 	
@@ -29,9 +30,8 @@ public class Caramel extends Candy {
 	
 	@Override
 	public String toString() {
-		String result = "Name: " + getName() + "; weight: " + getWeight() + "; shugar amount: " 
-				+ getShugarAmount() + "; color: " + getColor() + "; Caramel type: " + getCaramelType();
-		return result;
+		return String.format("Name: %s; weight: %d; shugar amount: %d; color: %s; Caramel type: %s", 
+			   getName(), getWeight(), getShugarAmount(), getColor(), getCaramelType());
 	}
 
 }

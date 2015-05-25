@@ -11,8 +11,9 @@ import com.epam.newyeargift.logic.LogicException;
 import com.epam.newyeargift.view.Reporter;
 
 public class CommandCreator implements Command {
-
+	
 	private final static Logger LOG = Logger.getLogger(Reporter.class);
+	
 	@Override
 	public Response processRequest(Request request) {
 		Response response = new Response();

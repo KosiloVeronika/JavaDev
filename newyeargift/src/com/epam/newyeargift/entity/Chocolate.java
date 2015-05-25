@@ -1,6 +1,7 @@
 package com.epam.newyeargift.entity;
 
 public class Chocolate extends Candy {
+	
 	private Filling filling;
 	private ChocolateType chocolateType;
 	
@@ -29,9 +30,8 @@ public class Chocolate extends Candy {
 	
 	@Override
 	public String toString() {
-		String result = "Name: " + getName() + "; weight: " + getWeight() + "; shugar amount: " 
-				+ getShugarAmount() + "; filling: " + getFilling() + "; Chocolate type: " + getChocolateType();
-		return result;
+		return String.format("Name: %s; weight: %d; shugar amount: %d; filling: %s; Chocolate type: %s", 
+			   getName(), getWeight(), getShugarAmount(), getFilling(), getChocolateType());
 	}
 
 }

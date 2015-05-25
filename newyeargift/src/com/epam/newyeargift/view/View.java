@@ -15,23 +15,27 @@ public class View {
 	}
 	
 	public void countWeight() {
-		Response response = CONTROLLER.processRequest(Commands.COUNT_WEIGHT, new Request(Commands.COUNT_WEIGHT, gift));
+		Response response = CONTROLLER.processRequest(Commands.COUNT_WEIGHT, 
+							new Request(Commands.COUNT_WEIGHT, gift));
 		Reporter.report(Commands.COUNT_WEIGHT,response); 
 	}
 	
 	public void createGift() {
-		Response response = CONTROLLER.processRequest(Commands.CREATE_GIFT, new Request());
+		Response response = CONTROLLER.processRequest(Commands.CREATE_GIFT, 
+													  new Request());
 		gift = (GiftBox)response.getData();
 		Reporter.report(Commands.CREATE_GIFT, response);	
 	}
 	
 	public void sort() {
-		Response response = CONTROLLER.processRequest(Commands.SORT_BY_WEIGHT, new Request(Commands.SORT_BY_WEIGHT, gift));
+		Response response = CONTROLLER.processRequest(Commands.SORT_BY_WEIGHT, 
+							new Request(Commands.SORT_BY_WEIGHT, gift));
 		Reporter.report(Commands.SORT_BY_WEIGHT, response);
 	}
 	
-	public void showAll(){
-		Response response = CONTROLLER.processRequest(Commands.SHOW_ALL, new Request(Commands.SHOW_ALL, gift));
+	public void showAll() {
+		Response response = CONTROLLER.processRequest(Commands.SHOW_ALL, 
+							new Request(Commands.SHOW_ALL, gift));
 		Reporter.report(Commands.SHOW_ALL, response);
 	}
 

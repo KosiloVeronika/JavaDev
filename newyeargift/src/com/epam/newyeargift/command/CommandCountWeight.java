@@ -10,6 +10,7 @@ import com.epam.newyeargift.logic.LogicException;
 import com.epam.newyeargift.view.Reporter;
 
 public class CommandCountWeight implements Command{
+	
 	private final static Logger LOG = Logger.getLogger(Reporter.class);
 
 	@Override

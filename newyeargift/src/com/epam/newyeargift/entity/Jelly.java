@@ -1,6 +1,7 @@
 package com.epam.newyeargift.entity;
 
 public class Jelly extends Candy {
+	
 	private Taste taste;
 
 	public Jelly(String name, int weight, int shugarAmount, Taste taste) throws EntityException {
@@ -18,8 +19,7 @@ public class Jelly extends Candy {
 
 	@Override
 	public String toString() {
-		String result = "Name: " + getName() + "; weight: " + getWeight() + "; shugar amount: " 
-				+ getShugarAmount() + "; taste: " + getTaste(); 
-		return result;
+		return String.format("Name: %s; weight: %d; shugar amount: %d; taste: %s", 
+			   getName(), getWeight(), getShugarAmount(), getTaste());
 	}
 }

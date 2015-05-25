@@ -5,6 +5,5 @@ public enum Taste {
 	CHERRY,
 	MINT,
 	LEMON,
-	ORANGE
-
+	ORANGE;
 }

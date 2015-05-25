@@ -8,10 +8,10 @@ import com.epam.newyeargift.entity.EntityException;
 import com.epam.newyeargift.view.View;
 
 public class Main {
+	
     static {
 		new DOMConfigurator().doConfigure("config/log4j.xml",LogManager.getLoggerRepository());
 	}
-    
 
 	public static void main(String[] args) throws EntityException {
 		View view = new View(new Controller());

@@ -3,15 +3,13 @@ package com.epam.newyeargift.bean;
 import com.epam.newyeargift.command.Commands;
 
 public class Request {
-
-	private Commands command;
-	private Object value;
-	private int minValue;
-	private int maxValue;
 	
-	public Request() {
-		
-	}
+    private Commands command;
+    private Object value;
+    private int minValue;
+    private int maxValue;
+    
+	public Request() { }
 	
 	public Request(Commands command, Object value, int minValue, int maxValue) {
 		this.command = command;

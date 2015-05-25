@@ -17,12 +17,12 @@ public class CommandFind implements Command {
 	private final static Logger LOG = Logger.getLogger(Reporter.class);
 	
 	@Override
-	public Response processRequest(Request request)  {
+	public Response processRequest(Request request) {
 		Response response = new Response();
 		try {
-		List<Candy> list = Logic.findCandy((GiftBox)request.getValue(), request.getMinValue(),
-												request.getMaxValue());
-		response.setData(list);
+			List<Candy> list = Logic.findCandy((GiftBox)request.getValue(), request.getMinValue(),
+													request.getMaxValue());
+			response.setData(list);
 		} catch (LogicException e) {
 			LOG.error(e);
 		}
