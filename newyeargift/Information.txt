@@ -1,6 +1,10 @@
-ADD_CANDIES
-com.epam.newyeargift.entity.GiftBox@1d81eb93
-ADD_CANDIES
-com.epam.newyeargift.entity.GiftBox@3abbfa04
-ADD_CANDIES
-com.epam.newyeargift.entity.GiftBox@4f7d0008
+CREATE_GIFT
+ Created Box color: BLUE
+COUNT_WEIGHT
+general weight: 37
+SORT_BY_WEIGHT
+ Sorted true
+SHOW_ALL
+Name: Кислинка; weight: 11; shugar amount: 2; color: YELLOW; Caramel type: CARAMEL_CANDY
+Name: Желейка; weight: 12; shugar amount: 10; taste: APPLE
+Name: Вавёрка; weight: 14; shugar amount: 11; filling: NUTS; Chocolate type: MILK

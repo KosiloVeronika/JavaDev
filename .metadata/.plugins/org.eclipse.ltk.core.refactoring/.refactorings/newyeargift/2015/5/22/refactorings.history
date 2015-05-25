@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;arg0&apos; in &apos;com.epam.newyeargift.logic.LogicException.LogicException(...)&apos; to &apos;error&apos;&#x0D;&#x0A;- Original project: &apos;newyeargift&apos;&#x0D;&#x0A;- Original element: &apos;com.epam.newyeargift.logic.LogicException.LogicException(String).arg0&apos;&#x0D;&#x0A;- Renamed element: &apos;arg0&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;arg0&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.epam.newyeargift.logic{LogicException.java[LogicException~LogicException~QString;@arg0!151!161!158!161!QString;!0!true" name="error" references="true" stamp="1432571104940" version="1.0"/>
+</session>

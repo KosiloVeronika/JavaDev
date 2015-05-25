@@ -1,0 +1,25 @@
+package com.epam.newyeargift.command;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.epam.newyeargift.bean.Request;
+import com.epam.newyeargift.bean.Response;
+import com.epam.newyeargift.entity.Candy;
+import com.epam.newyeargift.entity.GiftBox;
+import com.epam.newyeargift.logic.Logic;
+import com.epam.newyeargift.logic.LogicException;
+import com.epam.newyeargift.view.Reporter;
+
+public class CommandShow implements Command{
+	
+	@Override
+	public Response processRequest(Request request) {
+		Response response = new Response();
+		List<Candy> list = Logic.showAll((GiftBox)request.getValue());
+		response.setData(list);
+		return response;
+	}
+
+}

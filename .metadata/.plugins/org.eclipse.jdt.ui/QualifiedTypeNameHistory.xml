@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
 <fullyQualifiedTypeName name="org.apache.log4j.LogManager"/>
 <fullyQualifiedTypeName name="org.apache.log4j.xml.DOMConfigurator"/>
-<fullyQualifiedTypeName name="com.epam.newyeargift.entity.Candy"/>
 <fullyQualifiedTypeName name="com.epam.newyeargift.logic.CandyFactory"/>
 <fullyQualifiedTypeName name="com.epam.newyeargift.entity.Caramel"/>
 <fullyQualifiedTypeName name="com.epam.newyeargift.logic.CandyProperties"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.command.Command"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.logic.Logic"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="com.epam.newyeargift.dao.Creator"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.command.CommandFactory"/>
 <fullyQualifiedTypeName name="com.epam.newyeargift.entity.GiftBox"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.bean.Response"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.command.Commands"/>
+<fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.Candy"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.controller.Controller"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.view.View"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.bean.Request"/>
+<fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.logic.LogicException"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

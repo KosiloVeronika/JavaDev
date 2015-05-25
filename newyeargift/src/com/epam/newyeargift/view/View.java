@@ -4,26 +4,42 @@ import com.epam.newyeargift.bean.Request;
 import com.epam.newyeargift.bean.Response;
 import com.epam.newyeargift.command.Commands;
 import com.epam.newyeargift.controller.Controller;
+import com.epam.newyeargift.entity.GiftBox;
 
 public class View {
-	private final Controller controller;
+	private GiftBox gift = null;
+	private final Controller CONTROLLER;
 	
 	public View(Controller controller) {
-		this.controller = controller;
+		this.CONTROLLER = controller;
 	}
 	
 	public void countWeight() {
-		Response response = controller.processRequest(Commands.COUNT_WEIGHT, new Request());
+		Response response = CONTROLLER.processRequest(Commands.COUNT_WEIGHT, new Request(Commands.COUNT_WEIGHT, gift));
 		Reporter.report(Commands.COUNT_WEIGHT,response); 
 	}
 	
 	public void createGift() {
-		Response response = controller.processRequest(Commands.ADD_CANDIES, new Request());
-		Reporter.report(Commands.ADD_CANDIES, response);	
+		Response response = CONTROLLER.processRequest(Commands.CREATE_GIFT, new Request());
+		gift = (GiftBox)response.getData();
+		Reporter.report(Commands.CREATE_GIFT, response);	
 	}
 	
 	public void sort() {
-		Response response = controller.processRequest(Commands.SORT_BY_WEIGHT, new Request());
+		Response response = CONTROLLER.processRequest(Commands.SORT_BY_WEIGHT, new Request(Commands.SORT_BY_WEIGHT, gift));
 		Reporter.report(Commands.SORT_BY_WEIGHT, response);
+	}
+	
+	public void showAll(){
+		Response response = CONTROLLER.processRequest(Commands.SHOW_ALL, new Request(Commands.SHOW_ALL, gift));
+		Reporter.report(Commands.SHOW_ALL, response);
+	}
+
+	public GiftBox getGift() {
+		return gift;
+	}
+
+	public void setGift(GiftBox gift) {
+		this.gift = gift;
 	}
 }

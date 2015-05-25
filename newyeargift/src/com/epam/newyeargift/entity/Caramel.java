@@ -25,6 +25,13 @@ public class Caramel extends Candy {
 
 	public void setCaramelType(CaramelType caramelType) {
 		this.caramelType = caramelType;
+	}	
+	
+	@Override
+	public String toString() {
+		String result = "Name: " + getName() + "; weight: " + getWeight() + "; shugar amount: " 
+				+ getShugarAmount() + "; color: " + getColor() + "; Caramel type: " + getCaramelType();
+		return result;
 	}
 
 }

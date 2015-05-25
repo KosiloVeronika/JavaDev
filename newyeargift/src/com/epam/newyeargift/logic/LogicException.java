@@ -6,25 +6,24 @@ public class LogicException extends Exception {
 		
 	}
 
-	public LogicException(String arg0) {
-		super(arg0);
+	public LogicException(String message) {
+		super(message);
 
 	}
 
-	public LogicException(Throwable arg0) {
-		super(arg0);
+	public LogicException(Throwable error) {
+		super(error);
 
 	}
 
-	public LogicException(String arg0, Throwable arg1) {
-		super(arg0, arg1);
+	public LogicException(String message, Throwable error) {
+		super(message, error);
 
 	}
 
-	public LogicException(String arg0, Throwable arg1, boolean arg2,
-			boolean arg3) {
-		super(arg0, arg1, arg2, arg3);
-
-	}
+	@Override
+    public String getMessage(){
+        return "Logic error.";
+    }
 
 }

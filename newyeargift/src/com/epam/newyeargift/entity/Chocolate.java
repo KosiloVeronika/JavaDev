@@ -26,5 +26,12 @@ public class Chocolate extends Candy {
 	public void setChocolateType(ChocolateType chocolateType) {
 		this.chocolateType = chocolateType;
 	}
+	
+	@Override
+	public String toString() {
+		String result = "Name: " + getName() + "; weight: " + getWeight() + "; shugar amount: " 
+				+ getShugarAmount() + "; filling: " + getFilling() + "; Chocolate type: " + getChocolateType();
+		return result;
+	}
 
 }

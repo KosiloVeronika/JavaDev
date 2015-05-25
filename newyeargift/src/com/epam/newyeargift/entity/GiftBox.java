@@ -1,5 +1,6 @@
 package com.epam.newyeargift.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Collection;
 import java.util.Collections;
@@ -25,12 +26,22 @@ public class GiftBox {
 		return candies.add(candy);
 	}
 
-	public boolean addCandiesList(Collection<Candy> candies) {
-		return candies.addAll(candies);
+	public void addCandiesList(List<Candy> candies) {
+		this.candies = new ArrayList<Candy>(candies);
 	}
 
-	public List<Candy> getCandies() {
-		return Collections.unmodifiableList(candies);
+	public List<Candy> getCandies() throws EntityException{
+		try {
+			return Collections.unmodifiableList(candies);
+		} catch(NullPointerException e) {
+			throw new NullPointerException();
+		}
+	}
+	
+	@Override
+	public String toString() {
+		String result = "Box color: " + getBoxColor();
+		return result;
 	}
 	
 	

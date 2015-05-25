@@ -16,4 +16,10 @@ public class Jelly extends Candy {
 		this.taste = taste;
 	}
 
+	@Override
+	public String toString() {
+		String result = "Name: " + getName() + "; weight: " + getWeight() + "; shugar amount: " 
+				+ getShugarAmount() + "; taste: " + getTaste(); 
+		return result;
+	}
 }
