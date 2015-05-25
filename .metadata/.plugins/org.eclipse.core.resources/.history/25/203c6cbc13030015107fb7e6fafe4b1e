@@ -35,6 +35,7 @@ public class Reporter {
 					info.append("	" + c.toString() + "\n");
 				}
 				break;
+			}
 			case FIND_BY_SHUGAR_AMOUNT:
 				candies = (List<Candy>) response.getData();
 				for(Candy c : candies) {

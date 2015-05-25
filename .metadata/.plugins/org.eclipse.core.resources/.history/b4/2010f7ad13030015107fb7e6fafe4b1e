@@ -33,8 +33,8 @@ public class Reporter {
 				candies = (List<Candy>) response.getData();
 				for(Candy c : candies) {
 					info.append("	" + c.toString() + "\n");
-				}
 				break;
+			}
 			case FIND_BY_SHUGAR_AMOUNT:
 				candies = (List<Candy>) response.getData();
 				for(Candy c : candies) {
