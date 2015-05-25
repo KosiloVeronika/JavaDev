@@ -13,17 +13,17 @@ public class View {
 	}
 	
 	public void countWeight() {
-		Response response = controller.processRequest(Commands.COUNT_WEIGHT, new Request());
+		Response response = controller.processRequest(Commands.COUNT_WEIGHT, null);
 		Reporter.report(Commands.COUNT_WEIGHT,response); 
 	}
 	
 	public void createGift() {
-		Response response = controller.processRequest(Commands.ADD_CANDIES, new Request());
-		Reporter.report(Commands.ADD_CANDIES, response);	
+		Response response = controller.processRequest(Commands.CREATE_GIFT, new Request());
+		Reporter.report(Commands.CREATE_GIFT, response);	
 	}
 	
 	public void sort() {
-		Response response = controller.processRequest(Commands.SORT_BY_WEIGHT, new Request());
+		Response response = controller.processRequest(Commands.SORT_BY_WEIGHT, null);
 		Reporter.report(Commands.SORT_BY_WEIGHT, response);
 	}
 }

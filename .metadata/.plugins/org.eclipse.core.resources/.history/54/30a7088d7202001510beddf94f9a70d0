@@ -13,7 +13,7 @@ public class View {
 	}
 	
 	public void countWeight() {
-		Response response = controller.processRequest(Commands.COUNT_WEIGHT, new Request());
+		Response response = controller.processRequest(Commands.COUNT_WEIGHT, null);
 		Reporter.report(Commands.COUNT_WEIGHT,response); 
 	}
 	
@@ -23,7 +23,7 @@ public class View {
 	}
 	
 	public void sort() {
-		Response response = controller.processRequest(Commands.SORT_BY_WEIGHT, new Request());
+		Response response = controller.processRequest(Commands.SORT_BY_WEIGHT, null);
 		Reporter.report(Commands.SORT_BY_WEIGHT, response);
 	}
 }

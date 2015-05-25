@@ -1,0 +1,6 @@
+ADD_CANDIES
+com.epam.newyeargift.entity.GiftBox@1d81eb93
+ADD_CANDIES
+com.epam.newyeargift.entity.GiftBox@3abbfa04
+ADD_CANDIES
+com.epam.newyeargift.entity.GiftBox@4f7d0008
