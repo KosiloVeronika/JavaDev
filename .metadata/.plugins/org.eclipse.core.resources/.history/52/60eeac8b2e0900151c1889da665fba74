@@ -1,0 +1,11 @@
+package com.epam.example.entity;
+
+public class Composite implements Component {
+
+	@Override
+	public void traverse() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

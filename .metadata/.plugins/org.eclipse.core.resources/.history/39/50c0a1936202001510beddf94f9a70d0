@@ -1,9 +1,0 @@
-package com.epam.newyeargift.command;
-
-public class CommandCountWeight {
-
-	public CommandCountWeight() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

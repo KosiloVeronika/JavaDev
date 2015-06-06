@@ -2,12 +2,13 @@ package com.epam.newyeargift.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Collection;
 import java.util.Collections;
 
 public class GiftBox {
 	private Color boxColor;
 	private List<Candy> candies;
+	
+	public GiftBox() { }
 	
 	public GiftBox(Color boxColor, List<Candy> candies) {
 		this.boxColor = boxColor;

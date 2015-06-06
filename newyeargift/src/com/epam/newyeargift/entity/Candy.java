@@ -2,11 +2,15 @@ package com.epam.newyeargift.entity;
 
 public abstract class Candy implements Comparable<Candy> {
 	
+	private String id;
 	private String name;
 	private int weight;
 	private int shugarAmount;
+	
+	public Candy() { }
 
-	public Candy(String name, int weight, int shugarAmount) throws EntityException {
+	public Candy(String id, String name, int weight, int shugarAmount) throws EntityException {
+		setId(id);
 		this.name = name;
 		setWeight(weight);
 		setShugarAmount(shugarAmount);
@@ -47,5 +51,13 @@ public abstract class Candy implements Comparable<Candy> {
 	@Override 
 	public int compareTo(Candy candy) {
 		return weight - candy.weight;	
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 }

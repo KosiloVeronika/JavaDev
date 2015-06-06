@@ -1,0 +1,7 @@
+package com.epam.parcerapp.entity;
+
+public enum CompositeType {
+	TEXT,
+	PARAGRAPH,
+	CODE;
+}

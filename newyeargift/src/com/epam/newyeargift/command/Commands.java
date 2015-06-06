@@ -5,5 +5,8 @@ public enum Commands {
 	SORT_BY_WEIGHT,
 	SHOW_ALL,
 	FIND_BY_SHUGAR_AMOUNT,
-	COUNT_WEIGHT;
+	COUNT_WEIGHT,
+	DOM,
+	SAX,
+	STAX;
 }

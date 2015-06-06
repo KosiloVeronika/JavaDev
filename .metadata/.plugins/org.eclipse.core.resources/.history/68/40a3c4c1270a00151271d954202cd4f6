@@ -1,0 +1,85 @@
+package com.epam.parcerapp.parse;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import com.epam.parcerapp.entity.Component;
+import com.epam.parcerapp.entity.Composite;
+import com.epam.parcerapp.entity.CompositeType;
+import com.epam.parcerapp.entity.Leaf;
+
+public class Parser {
+	
+	private Parser() { }
+
+	public static void parseManage(String text, Composite composite) throws ParserException {
+		switch(composite.getType()) {
+			case TEXT:
+				parse(text,"sentence", composite);
+				break;
+			case SENTENCE:
+				parse(text,"word", composite);
+				break;
+			case CODE:
+				parse(text,"code", composite);
+				break;
+			default: throw new ParserException ("This element type can not be recognized");
+		}
+	}
+	
+	public static void parse(String text, String type, Composite father) throws ParserException {
+		
+		Properties prop = new Properties();
+		String propFileName = "resources/regex.properties";
+		String outputText = "";
+		String parametr = new String();
+		String typeOfObject;
+ 
+		FileInputStream inputStream;
+		try {
+			inputStream = new FileInputStream(propFileName);
+		} catch (FileNotFoundException e) {
+			throw new ParserException("Problem with property file", e);
+		}
+ 
+		try {
+			prop.load(inputStream);
+		} catch (IOException e) {
+			throw new ParserException("Problem with property file", e);
+		}
+		String regEx = prop.getProperty(type);
+		typeOfObject = prop.getProperty(parametr.format("%sType",type));
+		Pattern pattern = Pattern.compile(regEx);
+		Matcher matcher = pattern.matcher(text);
+		while(matcher.find()) {
+				outputText = matcher.group();
+				createComponent(outputText, father, typeOfObject, type);
+				outputText = "";
+		}
+		
+	}
+
+	private static void createComponent(String outputText, Composite father,
+			String typeOfObject, String type) throws ParserException {
+		switch (typeOfObject) {
+		case "Leaf":
+			Component leaf = new Leaf(type, outputText);
+			father.add(leaf);
+			break;
+		case "Composite":
+			Composite composite = new Composite(CompositeType.SENTENCE);
+			parseManage(outputText, composite);
+			father.add(composite);
+			break;
+		default: 
+			throw new ParserException("this element type can not be recognized");
+		}
+		
+	}
+
+	
+}

@@ -1,0 +1,88 @@
+package com.epam.newyeargift.dao;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import com.epam.newyeargift.entity.Candy;
+import com.epam.newyeargift.entity.GiftBox;
+
+public class SaxParser extends DefaultHandler implements DataAccessDao {
+	private final GiftBox box;
+    private Candy currentBook;
+    private final ArrayList<Candy> candies;
+    private CandiesTagsEnum bookEnum;
+    
+    public SaxParser(){
+        box = new GiftBox();
+        candies = (ArrayList<Candy>) box.getCandies();
+        bookEnum = null;
+    }
+
+	@Override
+	public GiftBox getGiftFromSource(Object... args) throws DaoException {
+		try {
+            String filePath = (String) args[0];
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser parser = factory.newSAXParser();
+            parser.parse(new File(filePath), this);
+            return box;
+        } catch (ParserConfigurationException | SAXException | IOException ex) {
+            throw new DaoException(ex.getMessage(), ex);
+        }
+	}
+	
+	@Override 
+    public void startElement(String namespaceURI, String localName, String qName,Attributes atts) throws SAXException { 
+        if (qName.equals("book")){
+            currentBook = new Book();
+            currentBook.setID(atts.getValue(0));
+            currentBook.setBookName(atts.getValue(1));
+        }
+        if (!"library".equals(qName) && !"book".equals(qName)){
+            bookEnum = BookEnum.valueOf(qName.toUpperCase());
+        }
+  
+    }
+    
+    @Override
+    public void endElement(String uri, String localName,String qName){
+        if (qName.equals("book")){
+            books.add(currentBook);
+        }
+        bookEnum = null;
+    }
+    
+    @Override 
+    public void characters(char[] ch, int start, int length) throws SAXException { 
+        String value = new String(ch, start, length).trim();
+
+        if (bookEnum == null) return;
+        switch(bookEnum){
+            case WRITER:
+                currentBook.setWriter(value);
+                break;
+            case PAPERBACK:
+                currentBook.setPaperback(value);
+                break;
+            case YEAR:
+                currentBook.setYear(Integer.parseInt(value));
+                break;
+            case PAGE:
+                currentBook.setPage(Integer.parseInt(value));
+                break;
+        }
+    }
+
+}
+
+enum CandiesTagsEnum{
+    WRITER, PAPERBACK, YEAR, PAGE, LIBRARY;
+}

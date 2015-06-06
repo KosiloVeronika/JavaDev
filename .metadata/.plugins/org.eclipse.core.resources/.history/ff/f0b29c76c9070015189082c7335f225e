@@ -1,0 +1,29 @@
+package com.epam.parcerapp.logic;
+
+public class Question implements BaseInterface {
+
+	private String message = "";
+	private SubTask parent = null;
+	
+	public Question(SubTask root, String message) {
+		setMessage(message);
+	}
+	
+	@Override
+	public String handleRequest() {
+		if(parent == null) {
+			return message;
+		} else {
+			
+		}
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+}

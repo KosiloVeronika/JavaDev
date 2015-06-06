@@ -7,7 +7,6 @@ import com.epam.newyeargift.bean.Response;
 import com.epam.newyeargift.dao.Creator;
 import com.epam.newyeargift.entity.EntityException;
 import com.epam.newyeargift.entity.GiftBox;
-import com.epam.newyeargift.logic.LogicException;
 import com.epam.newyeargift.view.Reporter;
 
 public class CommandCreator implements Command {

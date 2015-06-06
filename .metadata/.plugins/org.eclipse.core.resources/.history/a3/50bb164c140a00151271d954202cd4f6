@@ -1,0 +1,28 @@
+package com.epam.parcerapp.entity;
+
+public class Leaf implements Component {
+	private String part;
+	
+	public Leaf(Component component, CompositeType type) {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+
+	@Override
+	public void add(Component c) {
+		
+	}
+
+	@Override
+	public void remove(Component c) {
+
+	}
+
+	@Override
+	public Object getChild(int index) {
+		return null;
+
+	}
+
+}

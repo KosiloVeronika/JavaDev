@@ -7,6 +7,7 @@ import com.epam.newyeargift.entity.Filling;
 import com.epam.newyeargift.entity.Taste;
 
 public class CandyProperties {
+	private String id;
 	private String name;
 	private int weight;
 	private int shugarAmount;
@@ -16,8 +17,9 @@ public class CandyProperties {
 	private Filling filling;
 	private ChocolateType chocolateType;
 	
-	public CandyProperties(String name, int weight, int shugarAmount,
+	public CandyProperties(String id, String name, int weight, int shugarAmount,
 			Filling filling, ChocolateType chocolateType) {
+		this.id = id;
 		this.name = name;
 		this.weight = weight;
 		this.shugarAmount = shugarAmount;
@@ -25,16 +27,18 @@ public class CandyProperties {
 		this.chocolateType = chocolateType;
 	}
 	
-	public CandyProperties(String name, int weight, int shugarAmount,
+	public CandyProperties(String id, String name, int weight, int shugarAmount,
 			Taste taste) {
+		this.id = id;
 		this.name = name;
 		this.weight = weight;
 		this.shugarAmount = shugarAmount;
 		this.taste = taste;
 	}
 	
-	public CandyProperties(String name, int weight, int shugarAmount,
+	public CandyProperties(String id, String name, int weight, int shugarAmount,
 			Color color, CaramelType caramelType) {
+		this.id = id;
 		this.name = name;
 		this.weight = weight;
 		this.shugarAmount = shugarAmount;
@@ -104,6 +108,14 @@ public class CandyProperties {
 	
 	public void setChocolateType(ChocolateType chocolateType) {
 		this.chocolateType = chocolateType;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gift>
+	 xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xsi:noNamespaceSchemaLocation='GiftXsd.xsd'>
+	<caramel id="id-1">
+		<name>Кислинка</name>
+		<weight>13</weight>
+		<shugar-amount>6</shugar-amount>
+		<color>YELLOW</color>
+		<type-of-caramel>CARAMEL_CANDY</type-of-caramel>
+	</caramel>	
+	<chocolate id="id-2">
+		<name>Алёнка</name>
+		<weight>8</weight>
+		<shugar-amount>16</shugar-amount>
+		<type-of-chocolate>MILK</type-of-chocolate>
+		<filling>NUTS</filling>
+	</chocolate>
+	<jelly  id="id-3">
+		<name>Jelly</name>
+		<weight>15</weight>
+		<shugar-amount>8</shugar-amount>
+		<taste>CHERRY</taste>
+	</jelly>
+	<chocolate  id="id-4">
+		<name>Алёшка</name>
+		<weight>20</weight>
+		<shugar-amount>11</shugar-amount>
+		<type-of-chocolate>DARK</type-of-chocolate>
+		<filling>MARMELADE</filling>
+	</chocolate>
+	
+</gift>
+   

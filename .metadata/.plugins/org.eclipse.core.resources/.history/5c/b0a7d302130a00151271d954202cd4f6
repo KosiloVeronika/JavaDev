@@ -1,0 +1,57 @@
+package com.epam.parcerapp.parse;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import com.epam.parcerapp.entity.Composite;
+
+public abstract class Parser {
+	
+	
+	public static void parseManage(String text, Composite composite) throws IOException {
+		switch(composite.getType()) {
+		case TEXT:
+			Parser.parse(text, "text", composite);
+			break;
+		case SENTENCE:
+			break;
+		default:
+		}
+	}
+	
+	public static void parse(String text, String type, Composite father) throws IOException {
+		
+		Properties prop = new Properties();
+		String propFileName = "regex.properties";
+		String outputText = "";
+		int currentStep = 0;
+		int firstStep = 0;
+		int lastStep = 0;
+ 
+		FileInputStream inputStream = new FileInputStream(propFileName);
+ 
+		try {
+			prop.load(inputStream);
+		} catch (IOException e) {
+			//logger
+		}
+		String regEx = prop.getProperty(type);
+		
+		Pattern pattern = Pattern.compile(regEx);
+		Matcher matcher = pattern.matcher(text);
+		while(matcher.find(lastStep)) {
+			currentStep = matcher.start();
+			if(lastStep - currentStep != 0) {
+				outputText = text.substring(currentStep, lastStep);
+				createComponent();
+			}
+		}
+		
+		
+	}
+
+}

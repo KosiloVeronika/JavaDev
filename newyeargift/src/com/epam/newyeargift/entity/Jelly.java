@@ -3,9 +3,11 @@ package com.epam.newyeargift.entity;
 public class Jelly extends Candy {
 	
 	private Taste taste;
+	
+	public Jelly() { }
 
-	public Jelly(String name, int weight, int shugarAmount, Taste taste) throws EntityException {
-		super(name, weight, shugarAmount);
+	public Jelly(String id, String name, int weight, int shugarAmount, Taste taste) throws EntityException {
+		super(id, name, weight, shugarAmount);
 		this.setTaste(taste);
 	}
 

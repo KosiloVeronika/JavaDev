@@ -1,7 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-<typeInfo handle="=newyeargift/src&lt;com.epam.newyeargift.entity{Candy.java[Candy" modifiers="1025" timestamp="1432498725793"/>
-<typeInfo handle="=newyeargift/C:\/Program Files\/Java\/jre1.8.0_45\/lib\/rt.jar&lt;javax.xml.crypto.dsig.spec(ExcC14NParameterSpec.class[ExcC14NParameterSpec" modifiers="49" timestamp="1432059526088"/>
-<typeInfo handle="=newyeargift/C:\/Program Files\/Java\/jre1.8.0_45\/lib\/rt.jar&lt;java.lang(Exception.class[Exception" modifiers="33" timestamp="1432059526088"/>
-<typeInfo handle="=newyeargift/src&lt;com.epam.newyeargift.command{Command.java[Command" modifiers="513" timestamp="1432502473965"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>

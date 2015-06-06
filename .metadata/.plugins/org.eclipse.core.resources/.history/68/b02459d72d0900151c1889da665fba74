@@ -1,0 +1,21 @@
+package com.epam.parcerapp.entity;
+
+public class Leaf implements Component {
+
+	@Override
+	public void add(Component c) {
+		
+	}
+
+	@Override
+	public void remove(Component c) {
+
+	}
+
+	@Override
+	public Object getChild(int index) {
+		return null;
+
+	}
+
+}

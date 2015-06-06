@@ -1,0 +1,11 @@
+1433249332505	Delete elements
+1433344529283	Move compilation unit
+1433344533472	Delete element
+1433351633695	Encapsulate field 'part'
+1433351641139	Encapsulate field 'component'
+1433351763089	Encapsulate field 'name'
+1433353219145	Rename type 'ParcerException'
+1433353346870	Rename local variable 'e1'
+1433360255511	Encapsulate field 'size'
+1433500510228	Rename type 'CompositeType'
+1433500544270	Encapsulate field 'type'

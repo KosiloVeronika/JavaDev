@@ -1,0 +1,5 @@
+package com.epam.parcerapp.entity;
+
+public interface Component {
+
+}

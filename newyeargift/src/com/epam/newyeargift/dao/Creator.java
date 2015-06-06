@@ -11,11 +11,11 @@ public abstract class Creator {
 	public static GiftBox createGift() throws EntityException {
 		List<Candy> candies = new ArrayList<Candy>();
 		candies.add(CandyFactory.createCandy("jelly", 
-				new CandyProperties("Желейка",12,10,Taste.APPLE)));
+				new CandyProperties("id-1","Желейка",12,10,Taste.APPLE)));
 		candies.add(CandyFactory.createCandy("chocolate", 
-				new CandyProperties("Вавёрка",14,11,Filling.NUTS,ChocolateType.MILK)));
+				new CandyProperties("id-2","Вавёрка",14,11,Filling.NUTS,ChocolateType.MILK)));
 		candies.add(CandyFactory.createCandy("caramel", 
-				new CandyProperties("Кислинка",11,2,Color.YELLOW,CaramelType.CARAMEL_CANDY)));
+				new CandyProperties("id-3","Кислинка",11,2,Color.YELLOW,CaramelType.CARAMEL_CANDY)));
 		GiftBox gift = new GiftBox(Color.BLUE, candies);
 		return gift;
 	}

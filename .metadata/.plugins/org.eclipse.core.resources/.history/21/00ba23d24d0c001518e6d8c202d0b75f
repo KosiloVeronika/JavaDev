@@ -1,0 +1,5 @@
+package com.epam.newyeargift.dao;
+
+public class DomParser implements DataAccessDao {
+
+}

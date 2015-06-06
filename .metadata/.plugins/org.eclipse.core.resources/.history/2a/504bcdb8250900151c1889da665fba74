@@ -1,0 +1,39 @@
+package parse;
+
+public class Question implements BaseInterface {
+
+	private String message = "";
+	private SubTask parent = null;
+	
+
+	public Question(SubTask parent, String message) {
+		setParent(parent);
+		setMessage(message);
+	}
+		
+	@Override
+	public String handleRequest() {
+		if(parent == null) {
+			return message;
+		} else {
+			return parent.handleRequest();
+		}
+	}
+	
+	public SubTask getParent() {
+		return parent;
+	}
+	
+	public void setParent(SubTask parent) {
+		this.parent = parent;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.epam.newyeargift.dao;
+
+import com.epam.newyeargift.entity.GiftBox;
+
+public class SaxParser implements DataAccessDao {
+
+	@Override
+	public GiftBox getGiftFromSource(Object... args) throws DaoException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

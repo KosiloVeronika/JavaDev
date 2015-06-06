@@ -16,11 +16,12 @@ import com.epam.newyeargift.logic.LogicException;
 public class Reporter {
 	private final static Logger LOG = Logger.getLogger(Reporter.class);
 	
+	@SuppressWarnings("unchecked")
 	public static void report(Commands command, Response response) {
 		try(BufferedWriter writer = new BufferedWriter(new FileWriter("Information.txt", true))) {
 			StringBuilder info = new StringBuilder("");
 			info.append(command + "\n");
-			List<Candy> candies = null;
+			List<Candy> candies;
 			int sum;
 			switch (command) {
 			case CREATE_GIFT: 

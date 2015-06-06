@@ -1,0 +1,13 @@
+package com.epam.parcerapp.main;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class Main {
+
+	public static void main(String[] args) {
+		String text = new String(Files.readAllBytes(Path.get("inpuy.txt")),StandardCharsets.UTF_8);
+
+	}
+
+}

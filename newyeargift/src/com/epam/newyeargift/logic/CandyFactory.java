@@ -9,17 +9,20 @@ public class CandyFactory {
 		CandyType candyType = CandyType.valueOf(type.toUpperCase());
 		switch(candyType) {
 		case CARAMEL: 
-			return new Caramel(properties.getName(), properties.getWeight(),
+			return new Caramel(properties.getId(), properties.getName(),
+							   properties.getWeight(),
 							   properties.getShugarAmount(), 
 					           properties.getColor(), 
 					           properties.getCaramelType());
 		case CHOCOLATE: 
-			return new Chocolate(properties.getName(), properties.getWeight(), 
+			return new Chocolate(properties.getId(), properties.getName(), 
+					             properties.getWeight(), 
 								 properties.getShugarAmount(), 
 								 properties.getFilling(), 
 								 properties.getChocolateType());
 		case JELLY: 
-			return new Jelly(properties.getName(), properties.getWeight(),
+			return new Jelly(properties.getId(), properties.getName(), 
+					         properties.getWeight(),
 					         properties.getShugarAmount(),
 					         properties.getTaste());
 		default: throw new EnumConstantNotPresentException(CandyType.class, 

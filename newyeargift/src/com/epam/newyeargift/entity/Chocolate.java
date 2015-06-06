@@ -5,9 +5,11 @@ public class Chocolate extends Candy {
 	private Filling filling;
 	private ChocolateType chocolateType;
 	
-	public Chocolate(String name, int weight, int shugarAmount, 
+	public Chocolate() { }
+	
+	public Chocolate(String id, String name, int weight, int shugarAmount, 
 					 Filling filling, ChocolateType chocolateType ) throws EntityException {
-		super(name, weight, shugarAmount);
+		super(id, name, weight, shugarAmount);
 		this.filling = filling;
 		this.chocolateType = chocolateType;
 	}

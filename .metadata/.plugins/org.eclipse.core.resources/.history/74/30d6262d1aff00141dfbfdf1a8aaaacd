@@ -1,5 +1,0 @@
-package com.epam.newyeargift.entity;
-
-public enum CaramelType {
-
-}

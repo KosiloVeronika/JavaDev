@@ -1,0 +1,11 @@
+package com.epam.parcerapp.logic;
+
+public class SubTask implements BaseInterface {
+
+	@Override
+	public String handleRequest() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

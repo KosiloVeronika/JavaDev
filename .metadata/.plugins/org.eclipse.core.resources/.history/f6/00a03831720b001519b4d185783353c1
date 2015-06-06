@@ -1,0 +1,28 @@
+package com.epam.parcerapp.parse;
+
+import com.epam.parcerapp.entity.Component;
+import com.epam.parcerapp.entity.Composite;
+
+public class Parser {
+	
+	private Parser() { }
+
+	public static void parseManager(String text, Composite c) {
+		
+		switch(c.getType()) {
+		case TEXT:
+			break;
+			
+		case SENTENCE:
+			break;
+			
+		default:
+		}
+		parse();
+	}
+	
+	private static void parse() {
+		
+	}
+	
+}

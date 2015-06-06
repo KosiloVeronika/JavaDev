@@ -9,6 +9,7 @@ import com.epam.newyeargift.entity.GiftBox;
 public class View {
 	private GiftBox gift = null;
 	private final Controller CONTROLLER;
+    private final static String FILE_PATH="xml\\GiftXml.xml";
 	
 	public View(Controller controller) {
 		this.CONTROLLER = controller;
@@ -38,6 +39,26 @@ public class View {
 							new Request(Commands.SHOW_ALL, gift));
 		Reporter.report(Commands.SHOW_ALL, response);
 	}
+	public void domParsing() {
+        Response response = CONTROLLER.processRequest(Commands.DOM, 
+        					new Request(Commands.DOM, FILE_PATH));
+        
+        Reporter.report(Commands.SHOW_ALL, response);
+    }
+    
+    public void saxParsing() {
+    	Response response = CONTROLLER.processRequest(Commands.SAX, 
+				new Request(Commands.SAX, FILE_PATH));
+
+        Reporter.report(Commands.SHOW_ALL, response);
+    }
+    
+    public void staxParsing() {
+    	Response response = CONTROLLER.processRequest(Commands.STAX, 
+				new Request(Commands.STAX, FILE_PATH));
+
+        Reporter.report(Commands.SHOW_ALL, response);
+    }
 
 	public GiftBox getGift() {
 		return gift;
