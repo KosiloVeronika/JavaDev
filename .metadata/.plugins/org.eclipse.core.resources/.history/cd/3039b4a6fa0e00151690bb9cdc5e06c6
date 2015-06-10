@@ -1,0 +1,8 @@
+package com.epam.parcerapp.entity;
+
+public enum LeafType {
+	CODE,
+	WORD,
+	PUNCTUATION,
+	SEPARATOR;
+}

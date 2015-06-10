@@ -8,70 +8,81 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.epam.parcerapp.entity.Component;
-import com.epam.parcerapp.entity.ComponentType;
 import com.epam.parcerapp.entity.Composite;
+import com.epam.parcerapp.entity.CompositeType;
 import com.epam.parcerapp.entity.Leaf;
 
 public class Parser {
 	
-	private Composite root = new Composite(ComponentType.TEXT);
-	private static Properties prop = new Properties();
-	
 	private Parser() { }
 
-	public static void parseManager(String text, Composite composite) {
-		ComponentType compositeType = composite.getType();
-		switch(compositeType) {
-		case TEXT:
-			parse(text, compositeType);
-			break;
-		case SENTENCE:
-			parse(text, compositeType);
-			break;
-		default:
+	public static void parseManage(String text, Composite composite) throws ParserException {
+		switch(composite.getType()) {
+			case TEXT:
+				parse(text,CompositeType.SENTENCE, composite);
+				break;
+			case SENTENCE:
+				parse(text,CompositeType.WORD, composite);
+				break;
+			case CODE:
+				parse(text,CompositeType.CODE, composite);
+				break;
+			default: throw new ParserException ("This element type can not be recognized");
 		}
-
 	}
 	
-	private static void parse(String text, ComponentType cType) {
+	public static void parse(String text, CompositeType type, Composite parent) throws ParserException {
 		
-	}
-	
-	public static void configure(String path) throws ParserException {
-		
+		Properties prop = new Properties();
+		String propFileName = "resources/regex.properties";
+		String outputText = "";
+		String parametr = new String();
+		String typeOfObject;
+ 
 		FileInputStream inputStream;
-		
 		try {
-			inputStream = new FileInputStream(path);
+			inputStream = new FileInputStream(propFileName);
+		} catch (FileNotFoundException e) {
+			throw new ParserException("Problem with property file", e);
+		}
+ 
+		try {
 			prop.load(inputStream);
 		} catch (IOException e) {
 			throw new ParserException("Problem with property file", e);
 		}
-		
-	}
-	
-	private static void findMatches(String text, String type, Composite father) {
-		String regEx = prop.getProperty(type);
-		String typeOfObject = prop.getProperty(String.format("%sType",type));
+		String regEx = prop.getProperty(type.toString().toLowerCase());
+		String regExCode = prop.getProperty("code");
+		typeOfObject = prop.getProperty(String.format("%sType",type.toString().toLowerCase()));
 		Pattern pattern = Pattern.compile(regEx);
+		Pattern codePattern = Pattern.compile(regExCode);
 		Matcher matcher = pattern.matcher(text);
+		int startPosition;
+		int endPosition;
 		while(matcher.find()) {
-				String outputText = matcher.group();
-				createComponent(outputText, father, typeOfObject, type);
+				startPosition = matcher.start();
+				endPosition = matcher.end();
+				outputText = matcher.group();
+				Matcher codeMatch = codePattern.matcher(text);
+				if(codeMatch.find(startPosition) && codeMatch.end() == endPosition) {
+					createComponent(outputText, parent, "Leaf", CompositeType.CODE);
+				} else {
+					createComponent(outputText, parent, typeOfObject, type);
+				}
 				outputText = "";
 		}
 	}
-	
+
 	private static void createComponent(String outputText, Composite father,
-			String typeOfObject, String type) {
+			String typeOfObject, CompositeType type) throws ParserException {
 		switch (typeOfObject) {
 		case "Leaf":
 			Component leaf = new Leaf(type, outputText);
 			father.add(leaf);
 			break;
 		case "Composite":
-			Composite composite = new Composite(ComponentType.SENTENCE);
-			parseManager(outputText, composite);
+			Composite composite = new Composite(CompositeType.SENTENCE);
+			parseManage(outputText, composite);
 			father.add(composite);
 			break;
 		default: 
@@ -80,10 +91,21 @@ public class Parser {
 		
 	}
 
-	private static boolean isCode(String text) {
-		boolean result = true;
-		if(findMatches(text,"code"))
-		return result;
+	public static String revive(Component component) {
+		StringBuilder sb = new StringBuilder();
+		revive(component, sb);
+		return sb.toString();		
+	}
+	
+	private static void revive(Component component, StringBuilder sb) {
+		int s = component.showSize();
+		for(int i = 0; i < s ; i++) {
+			if(component.getChild(i) instanceof Leaf) {
+				sb.append(((Leaf) component.getChild(i)).getPart());
+			} else {
+				revive((Component)component.getChild(i), sb);
+			}
+		}
 	}
 	
 }

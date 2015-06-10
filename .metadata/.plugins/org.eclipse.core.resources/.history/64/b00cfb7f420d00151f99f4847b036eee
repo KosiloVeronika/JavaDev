@@ -1,0 +1,23 @@
+package com.epam.parcerapp.reader;
+
+public class ReaderException extends Exception {
+
+	public ReaderException() {
+		super();
+	}
+
+	public ReaderException(String message, Throwable error) {
+		super(message, error);
+	}
+
+	public ReaderException(String arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}
+
+	public ReaderException(Throwable arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}
+
+}

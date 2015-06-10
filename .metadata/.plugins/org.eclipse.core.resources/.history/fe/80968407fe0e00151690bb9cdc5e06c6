@@ -1,0 +1,19 @@
+package com.epam.parcerapp.entity;
+
+public class EntityException extends Exception {
+
+	public EntityException() {
+	}
+
+	public EntityException(String message) {
+		super(message);
+	}
+
+	public EntityException(Throwable error) {
+		super(error);
+	}
+
+	public EntityException(String message, Throwable error) {
+		super(message, error);
+	}
+}

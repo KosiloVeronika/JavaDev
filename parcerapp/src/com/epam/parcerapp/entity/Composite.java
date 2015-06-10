@@ -3,12 +3,11 @@ package com.epam.parcerapp.entity;
 import java.util.ArrayList;
 
 public class Composite extends Component {
-	
 	private ArrayList<Component> components = new ArrayList<Component>();
-	private ComponentType type;
+	private CompositeType type;
 	
-	public Composite(ComponentType type) {
-		this.setType(type);
+	public Composite(CompositeType type) {
+		setType(type);
 	}
 	
 	@Override
@@ -28,11 +27,11 @@ public class Composite extends Component {
 
 	}
 
-	public ComponentType getType() {
+	public CompositeType getType() {
 		return type;
 	}
 
-	public void setType(ComponentType type) {
+	public void setType(CompositeType type) {
 		this.type = type;
 	}
 	

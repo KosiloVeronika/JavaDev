@@ -1,9 +1,0 @@
-package com.epam.parcerapp.entity;
-
-public abstract class Component {
-	static void add(Component c) {};
-	static void remove(Component c) {};
-	static Object getChild(int index) {};
-	static int showSize();
-	
-}

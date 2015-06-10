@@ -1,5 +1,0 @@
-package com.epam.parcerapp.parse;
-
-public class ParcerException extends Exception {
-
-}

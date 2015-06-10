@@ -1,12 +1,11 @@
 package com.epam.parcerapp.entity;
 
 public class Leaf extends Component {
-	
 	private String part;
-	private LeafType name;
+	private CompositeType name;
 	
 	
-	public Leaf(LeafType name, String part) {
+	public Leaf(CompositeType name, String part) {
 		this.setName(name);
 		this.setPart(part);
 	}	
@@ -42,11 +41,11 @@ public class Leaf extends Component {
 		throw new UnsupportedOperationException();
 	}
 
-	public LeafType getName() {
+	public CompositeType getName() {
 		return name;
 	}
 
-	public void setName(LeafType name) {
+	public void setName(CompositeType name) {
 		this.name = name;
 	}
 

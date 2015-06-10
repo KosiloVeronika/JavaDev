@@ -1,2 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.EntityException"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.Caramel"/>
+<fullyQualifiedTypeName name="org.xml.sax.helpers.DefaultHandler"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.Candy"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.Chocolate"/>
+<fullyQualifiedTypeName name="org.xml.sax.Attributes"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.Filling"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.CaramelType"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.Color"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.ChocolateType"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.entity.Taste"/>
+<fullyQualifiedTypeName name="com.epam.newyeargift.dao.DaoException"/>
+<fullyQualifiedTypeName name="com.epam.parcerapp.reader.FileReader"/>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+<fullyQualifiedTypeName name="org.apache.log4j.LogManager"/>
+<fullyQualifiedTypeName name="org.apache.log4j.xml.DOMConfigurator"/>
+<fullyQualifiedTypeName name="com.epam.parcerapp.logic.LogicException"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="com.epam.parcerapp.reporter.Reporter"/>
+<fullyQualifiedTypeName name="com.epam.parcerapp.logic.TextEditor"/>
+<fullyQualifiedTypeName name="com.epam.parcerapp.logic.Sorter"/>
+<fullyQualifiedTypeName name="com.epam.parcerapp.entity.Component"/>
+<fullyQualifiedTypeName name="com.epam.parcerapp.entity.Composite"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

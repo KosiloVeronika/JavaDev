@@ -1,0 +1,10 @@
+package com.epam.parcerapp.logic;
+
+public class WordsCounter {
+	public static String countWords(Component component) {
+		StringBuilder sb = new StringBuilder();
+		revive(component);
+		sort(sb);
+		return sb.toString();
+	}
+}

@@ -1,9 +1,12 @@
 package com.epam.parcerapp.entity;
 
 public abstract class Component {
-	abstract void add(Component c);
-	abstract void remove(Component c);
-	abstract Object getChild(int index);
-	abstract int showSize();
-	
+	public void add(Component c) { };
+	public void remove(Component c) { };
+	public Object getChild(int index) {
+		return null;
+	};
+	public int showSize() {
+		return (Integer) null;
+	};
 }

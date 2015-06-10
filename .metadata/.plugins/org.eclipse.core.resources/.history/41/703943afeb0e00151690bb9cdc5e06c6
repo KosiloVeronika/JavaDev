@@ -1,0 +1,33 @@
+package com.epam.parcerapp.main;
+
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
+import com.epam.parcerapp.entity.Composite;
+import com.epam.parcerapp.entity.CompositeType;
+import com.epam.parcerapp.parse.Parser;
+import com.epam.parcerapp.parse.ParserException;
+import com.epam.parcerapp.reader.FileReader;
+import com.epam.parcerapp.reader.ReaderException;
+
+public class Main {
+
+	private static String propFileName = "resources/regex.properties";
+	private static final String FILE_PATH = "input.txt";
+
+	public static void main(String[] args) throws ParserException, IOException, ReaderException {
+
+		Parser.configure(propFileName);
+		String text = FileReader.read("FILE_PATH");
+		Parser.parseManage(text, comp);
+		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+		          new FileOutputStream("output.txt"), "utf-8"));
+		String revivedText = Parser.revive(comp);
+		writer.write(revivedText);
+		writer.close();
+		System.out.println("done!");
+	}
+
+}
