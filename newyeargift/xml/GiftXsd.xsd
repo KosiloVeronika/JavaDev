@@ -9,15 +9,18 @@ and open the template in the editor.
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified">
    
-    <xs:element name="box" type="box-type"/>
+    <xs:element name="box" >
+	    <xs:complexType>
+	        <xs:sequence>
+	            <xs:element minOccurs="1" maxOccurs="unbounded" ref="candy"/>
+	        </xs:sequence>
+	    </xs:complexType>
+    </xs:element>
     
-    <xs:complexType name="box-type">
-        <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="chocolate" type="chocolate-type"/>
-			<xs:element minOccurs="0" maxOccurs="unbounded" name="jelly" type="jelly-type"/>
-			<xs:element minOccurs="0" maxOccurs="unbounded" name="caramel" type="caramel-type"/>
-        </xs:sequence>
-    </xs:complexType>
+    <xs:element name="candy" type="candy-type" abstract="true"/>
+    <xs:element name="chocolate" type="chocolate-type" substitutionGroup="candy"/>
+	<xs:element name="jelly" type="jelly-type" substitutionGroup="candy"/>
+	<xs:element name="caramel" type="caramel-type" substitutionGroup="candy"/>
     
     <xs:complexType name="candy-type">     	
         <xs:sequence >
