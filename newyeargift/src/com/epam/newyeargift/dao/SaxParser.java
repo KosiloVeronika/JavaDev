@@ -31,8 +31,8 @@ public class SaxParser extends DefaultHandler implements DataAccessDao {
     private CandiesTagsEnum cTagsEnum;
     
     public SaxParser() throws EntityException {
-        box = new GiftBox();
-        candies = (ArrayList<Candy>) box.getCandies();
+        candies = new ArrayList<Candy>();
+        box = new GiftBox(Color.BLUE, candies);
         cTagsEnum = null;
     }
 
@@ -68,7 +68,12 @@ public class SaxParser extends DefaultHandler implements DataAccessDao {
         if (f){
             currentCandy.setId(atts.getValue(0));
         } else {
-        	cTagsEnum = CandiesTagsEnum.valueOf(qName.toUpperCase());
+        	CandiesTagsEnum[] cte = CandiesTagsEnum.values();
+			for(CandiesTagsEnum c:cte) {
+        		if(qName.equals(c.getValue())) {
+        			cTagsEnum = c;
+        		}
+        	}
         }
   
     }
@@ -93,7 +98,7 @@ public class SaxParser extends DefaultHandler implements DataAccessDao {
 		        case WEIGHT:
 						try {
 							currentCandy.setWeight(Integer.parseInt(value));
-						} catch (EntityException e1) {}
+						} catch (EntityException e) {}
 		            break;
 		        case SHUGAR_AMOUNT:
 						try {

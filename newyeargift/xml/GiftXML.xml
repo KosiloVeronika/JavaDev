@@ -3,7 +3,7 @@
     xsi:noNamespaceSchemaLocation='GiftXsd.xsd'>
 	
 	<chocolate id="id-1">
-		<name>Алёнка</name>
+		<name>Красная Шапочка</name>
 		<weight>8</weight>
 		<shugar-amount>16</shugar-amount>
 		<type-of-chocolate>MILK</type-of-chocolate>
@@ -16,17 +16,58 @@
 		<type-of-chocolate>DARK</type-of-chocolate>
 		<filling>MARMALADE</filling>
 	</chocolate>
-	<jelly  id="id-3">
+	<chocolate id="id-3">
+		<name>Алёнка</name>
+		<weight>8</weight>
+		<shugar-amount>16</shugar-amount>
+		<type-of-chocolate>MILK</type-of-chocolate>
+		<filling>NUTS</filling>
+	</chocolate>
+	<chocolate id="id-4">
+		<name>Milka</name>
+		<weight>100</weight>
+		<shugar-amount>16</shugar-amount>
+		<type-of-chocolate>MILK</type-of-chocolate>
+		<filling>NUTS</filling>
+	</chocolate>
+	<jelly  id="id-5">
 		<name>Jelly</name>
 		<weight>15</weight>
 		<shugar-amount>8</shugar-amount>
 		<taste>CHERRY</taste>
 	</jelly>
-	<caramel id="id-4">
+	<jelly  id="id-6">
+		<name>ЖЕЛЕЙКА</name>
+		<weight>18</weight>
+		<shugar-amount>7</shugar-amount>
+		<taste>CHERRY</taste>
+	</jelly>
+	<caramel id="id-7">
 		<name>Кислинка</name>
 		<weight>13</weight>
 		<shugar-amount>6</shugar-amount>
 		<color>YELLOW</color>
+		<type-of-caramel>CARAMEL_CANDY</type-of-caramel>
+	</caramel>	
+	<caramel id="id-8">
+		<name>Барбарис</name>
+		<weight>11</weight>
+		<shugar-amount>3</shugar-amount>
+		<color>RED</color>
+		<type-of-caramel>CARAMEL_CANDY</type-of-caramel>
+	</caramel>	
+	<caramel id="id-9">
+		<name>Caramel stick</name>
+		<weight>13</weight>
+		<shugar-amount>6</shugar-amount>
+		<color>YELLOW</color>
+		<type-of-caramel>LOLLYPOP_STICK</type-of-caramel>
+	</caramel>	
+	<caramel id="id-10">
+		<name>Чупа-Чупс</name>
+		<weight>28</weight>
+		<shugar-amount>12</shugar-amount>
+		<color>GREEN</color>
 		<type-of-caramel>CARAMEL_CANDY</type-of-caramel>
 	</caramel>	
 	

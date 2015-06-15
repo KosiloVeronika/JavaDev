@@ -32,8 +32,7 @@ public class DomParser implements DataAccessDao {
 	public GiftBox getGiftFromSource(Object... args) throws DaoException {
 		try {
             String filePath = (String) args[0];
-            GiftBox box = new GiftBox();
-            ArrayList<Candy> candies = (ArrayList<Candy>) box.getCandies();
+            ArrayList<Candy> candies = new ArrayList<Candy>();
 
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setValidating(false);
@@ -50,11 +49,11 @@ public class DomParser implements DataAccessDao {
                 NamedNodeMap attributes = choccolateList.item(i).getAttributes();
                 candy.setId(attributes.item(0).getTextContent());
                 
-                candy.setName(list.item(1).getTextContent());
-                candy.setWeight(Integer.parseInt(list.item(0).getTextContent()));
-                candy.setShugarAmount(Integer.parseInt(list.item(1).getTextContent()));
-                candy.setChocolateType(ChocolateType.valueOf(list.item(2).getTextContent()));
-                candy.setFilling(Filling.valueOf(list.item(3).getTextContent()));
+                candy.setName(list.item(0).getTextContent());
+                candy.setWeight(Integer.parseInt(list.item(1).getTextContent()));
+                candy.setShugarAmount(Integer.parseInt(list.item(2).getTextContent()));
+                candy.setChocolateType(ChocolateType.valueOf(list.item(3).getTextContent()));
+                candy.setFilling(Filling.valueOf(list.item(4).getTextContent()));
                 
                 candies.add(candy);
             }
@@ -68,11 +67,11 @@ public class DomParser implements DataAccessDao {
                 NamedNodeMap attributes = caramelList.item(i).getAttributes();
                 candy.setId(attributes.item(0).getTextContent());
                 
-                candy.setName(list.item(1).getTextContent());
-                candy.setWeight(Integer.parseInt(list.item(0).getTextContent()));
-                candy.setShugarAmount(Integer.parseInt(list.item(1).getTextContent()));
-                candy.setColor(Color.valueOf(list.item(2).getTextContent()));
-                candy.setCaramelType(CaramelType.valueOf(list.item(3).getTextContent()));
+                candy.setName(list.item(0).getTextContent());
+                candy.setWeight(Integer.parseInt(list.item(1).getTextContent()));
+                candy.setShugarAmount(Integer.parseInt(list.item(2).getTextContent()));
+                candy.setColor(Color.valueOf(list.item(3).getTextContent()));
+                candy.setCaramelType(CaramelType.valueOf(list.item(4).getTextContent()));
                 
                 candies.add(candy);
             }
@@ -86,14 +85,15 @@ public class DomParser implements DataAccessDao {
                 NamedNodeMap attributes = jellylList.item(i).getAttributes();
                 candy.setId(attributes.item(0).getTextContent());
                 
-                candy.setName(list.item(1).getTextContent());
-                candy.setWeight(Integer.parseInt(list.item(0).getTextContent()));
-                candy.setShugarAmount(Integer.parseInt(list.item(1).getTextContent()));
-                candy.setTaste(Taste.valueOf(list.item(2).getTextContent()));
+                candy.setName(list.item(0).getTextContent());
+                candy.setWeight(Integer.parseInt(list.item(1).getTextContent()));
+                candy.setShugarAmount(Integer.parseInt(list.item(2).getTextContent()));
+                candy.setTaste(Taste.valueOf(list.item(3).getTextContent()));
                 
                 candies.add(candy);
             }
-            
+
+            GiftBox box = new GiftBox(Color.BLUE, candies);
             return box;
         } catch (SAXException | IOException | ParserConfigurationException | EntityException ex) {
             throw new DaoException(ex.getMessage(), ex);

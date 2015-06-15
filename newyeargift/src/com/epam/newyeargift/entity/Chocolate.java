@@ -32,8 +32,8 @@ public class Chocolate extends Candy {
 	
 	@Override
 	public String toString() {
-		return String.format("Name: %s; weight: %d; shugar amount: %d; filling: %s; Chocolate type: %s", 
-			   getName(), getWeight(), getShugarAmount(), getFilling(), getChocolateType());
+		return String.format("ID: %s; Name: %s; weight: %d; shugar amount: %d; filling: %s; Chocolate type: %s", 
+			   getId() ,getName(), getWeight(), getShugarAmount(), getFilling(), getChocolateType());
 	}
 
 }

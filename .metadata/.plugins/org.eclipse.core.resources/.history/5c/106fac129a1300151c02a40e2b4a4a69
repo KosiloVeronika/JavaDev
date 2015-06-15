@@ -1,0 +1,26 @@
+SHOW_ALL
+	Name: Красная Шапочка; weight: 8; shugar amount: 16; filling: NUTS; Chocolate type: MILK
+	Name: Алёшка; weight: 20; shugar amount: 11; filling: MARMALADE; Chocolate type: DARK
+	Name: Алёнка; weight: 8; shugar amount: 16; filling: NUTS; Chocolate type: MILK
+	Name: Milka; weight: 100; shugar amount: 16; filling: NUTS; Chocolate type: MILK
+	Name: Jelly; weight: 15; shugar amount: 8; taste: CHERRY
+	Name: ЖЕЛЕЙКА; weight: 18; shugar amount: 7; taste: CHERRY
+	Name: Кислинка; weight: 13; shugar amount: 6; color: YELLOW; Caramel type: CARAMEL_CANDY
+	Name: Барбарис; weight: 11; shugar amount: 3; color: RED; Caramel type: CARAMEL_CANDY
+	Name: Caramel stick; weight: 13; shugar amount: 6; color: YELLOW; Caramel type: LOLLYPOP_STICK
+	Name: Чупа-Чупс; weight: 28; shugar amount: 12; color: GREEN; Caramel type: CARAMEL_CANDY
+COUNT_WEIGHT
+	general weight: 234
+SORT_BY_WEIGHT
+	Sorted true
+SHOW_ALL
+	Name: Красная Шапочка; weight: 8; shugar amount: 16; filling: NUTS; Chocolate type: MILK
+	Name: Алёнка; weight: 8; shugar amount: 16; filling: NUTS; Chocolate type: MILK
+	Name: Барбарис; weight: 11; shugar amount: 3; color: RED; Caramel type: CARAMEL_CANDY
+	Name: Кислинка; weight: 13; shugar amount: 6; color: YELLOW; Caramel type: CARAMEL_CANDY
+	Name: Caramel stick; weight: 13; shugar amount: 6; color: YELLOW; Caramel type: LOLLYPOP_STICK
+	Name: Jelly; weight: 15; shugar amount: 8; taste: CHERRY
+	Name: ЖЕЛЕЙКА; weight: 18; shugar amount: 7; taste: CHERRY
+	Name: Алёшка; weight: 20; shugar amount: 11; filling: MARMALADE; Chocolate type: DARK
+	Name: Чупа-Чупс; weight: 28; shugar amount: 12; color: GREEN; Caramel type: CARAMEL_CANDY
+	Name: Milka; weight: 100; shugar amount: 16; filling: NUTS; Chocolate type: MILK

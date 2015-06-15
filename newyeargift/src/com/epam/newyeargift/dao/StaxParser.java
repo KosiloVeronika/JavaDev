@@ -24,7 +24,8 @@ import com.epam.newyeargift.entity.Taste;
 public class StaxParser implements DataAccessDao {
 	private GiftBox box;
     private Candy currentBook;
-    private ArrayList<Candy> books;
+    private ArrayList<Candy> candies = new ArrayList<Candy>();
+    private CandiesTagsEnum cTagsEnum;
     
 	@Override
 	public GiftBox getGiftFromSource(Object... args) throws DaoException {
@@ -47,10 +48,15 @@ public class StaxParser implements DataAccessDao {
             switch (type) {
                 case XMLStreamConstants.START_ELEMENT:
                     name = reader.getLocalName();
-                    switch (CandiesTagsEnum.valueOf(name.toUpperCase())) {
+                    CandiesTagsEnum[] cte = CandiesTagsEnum.values();
+            		for(CandiesTagsEnum c:cte) {
+            			if(name.equals(c.getValue())) {
+                			cTagsEnum = c;
+                		}
+            		}
+                    switch (cTagsEnum) {
                         case BOX:
-                            box = new GiftBox();
-                            books = (ArrayList<Candy>) box.getCandies();
+                            box = new GiftBox(Color.BLUE, candies);
                             break;
                         case CHOCOLATE:
                             currentBook = new Chocolate();
@@ -72,17 +78,23 @@ public class StaxParser implements DataAccessDao {
 
                 case XMLStreamConstants.END_ELEMENT:
                     name = reader.getLocalName();
-                    switch (CandiesTagsEnum.valueOf(name.toUpperCase())) {
+                    cte = CandiesTagsEnum.values();
+            		for(CandiesTagsEnum c:cte) {
+            			if(name.equals(c.getValue())) {
+                			cTagsEnum = c;
+                		}
+            		}
+                    switch (cTagsEnum) {
 	                    case BOX:
 	                    	return box;
 	                    case CHOCOLATE:
-	                    	books.add(currentBook);
+	                    	candies.add(currentBook);
 	                        break;
 	                    case CARAMEL:
-	                    	books.add(currentBook);
+	                    	candies.add(currentBook);
 	                        break;
 	                    case JELLY:
-	                    	books.add(currentBook);
+	                    	candies.add(currentBook);
 	                        break;
 					default:
 						break;
@@ -95,7 +107,15 @@ public class StaxParser implements DataAccessDao {
 
     private void writeCandyFeature(XMLStreamReader reader) 
     		throws XMLStreamException, NumberFormatException, EntityException {
-        switch (CandiesTagsEnum.valueOf(reader.getLocalName().toUpperCase())) {
+    	
+        CandiesTagsEnum[] cte = CandiesTagsEnum.values();
+		for(CandiesTagsEnum c:cte) {
+    		String name = reader.getLocalName();
+			if(name.equals(c.getValue())) {
+    			cTagsEnum = c;
+    		}
+		}
+        switch (cTagsEnum) {
             
             case NAME:
                 currentBook.setName(reader.getElementText());

@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 import com.epam.newyeargift.bean.Request;
 import com.epam.newyeargift.bean.Response;
-import com.epam.newyeargift.dao.Creator;
+import com.epam.newyeargift.create.Creator;
 import com.epam.newyeargift.entity.EntityException;
 import com.epam.newyeargift.entity.GiftBox;
 import com.epam.newyeargift.view.Reporter;

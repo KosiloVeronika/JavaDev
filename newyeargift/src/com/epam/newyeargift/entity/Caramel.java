@@ -32,8 +32,8 @@ public class Caramel extends Candy {
 	
 	@Override
 	public String toString() {
-		return String.format("Name: %s; weight: %d; shugar amount: %d; color: %s; Caramel type: %s", 
-			   getName(), getWeight(), getShugarAmount(), getColor(), getCaramelType());
+		return String.format("ID: %s; Name: %s; weight: %d; shugar amount: %d; color: %s; Caramel type: %s", 
+			   getId() ,getName(), getWeight(), getShugarAmount(), getColor(), getCaramelType());
 	}
 
 }

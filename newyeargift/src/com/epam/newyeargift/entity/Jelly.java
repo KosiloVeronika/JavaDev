@@ -21,7 +21,7 @@ public class Jelly extends Candy {
 
 	@Override
 	public String toString() {
-		return String.format("Name: %s; weight: %d; shugar amount: %d; taste: %s", 
-			   getName(), getWeight(), getShugarAmount(), getTaste());
+		return String.format("ID: %s; Name: %s; weight: %d; shugar amount: %d; taste: %s", 
+			   getId(), getName(), getWeight(), getShugarAmount(), getTaste());
 	}
 }

@@ -4,9 +4,9 @@ import org.apache.log4j.Logger;
 
 import com.epam.newyeargift.bean.Request;
 import com.epam.newyeargift.bean.Response;
-import com.epam.newyeargift.dao.Creator;
-import com.epam.newyeargift.entity.EntityException;
 import com.epam.newyeargift.entity.GiftBox;
+import com.epam.newyeargift.logic.Logic;
+import com.epam.newyeargift.logic.LogicException;
 import com.epam.newyeargift.view.Reporter;
 
 public class CommandSaxParsing implements Command {
@@ -16,9 +16,10 @@ public class CommandSaxParsing implements Command {
 	public Response processRequest(Request request) {
 		Response response = new Response();
 		try {
-			GiftBox gift = Creator.createGift();
+			String filePath = (String) request.getValue();
+			GiftBox gift = Logic.saxParsing(filePath);
 			response.setData(gift);
-		} catch (EntityException e) {
+		} catch (LogicException e) {
 			LOG.error(e);
 		}
 		return response;
