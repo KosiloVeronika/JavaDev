@@ -6,22 +6,21 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 public class Reader extends Thread {
 	
 	private int readerID;
 	private Library lib;
-	private Lock lock;
-	private Condition isFree;
+	private Lock lock = new ReentrantLock();
+	private Condition isFree = lock.newCondition();
 	private ArrayList<Book> readerBookList;
 	private Integer[] books;
 	
-	public Reader(Library lib, int readerID, Lock lock, Condition isFree) {
+	public Reader(Library lib, int readerID) {
 		this.lib = lib;
 		this.readerID =  readerID;
-		this.lock = lock;
-		this.isFree = isFree;
 		readerBookList = new ArrayList<Book>();
 	}
 	
@@ -32,38 +31,39 @@ public class Reader extends Thread {
 		Random random = new Random();
 		HashSet<Integer> bookID = new HashSet<Integer>();
 		int bookCount = new Random().nextInt(6) + 1;
-		System.out.println(readerID +" " + bookCount);
 		if (bookCount > 0) {
 			for(int k = 0; k < bookCount; k++) {
-				int ID = random.nextInt(lib.getLibrary().size());
-				if(ID == 0) {
-					ID++;
-				}
-				bookID.add(ID);
+				bookID.add(random.nextInt(lib.getLibrary().size()));
 			}
 		}
+
 		lock.lock();
 		try {
 			books = new Integer[bookID.size()];
 			books = bookID.toArray(books);
-			for(int i = 0; i < books.length; i++) {
+			for(int i = 0; i <= books.length; i++) {
 				if (lib.getLibrary().get(books[i])) {
 					readerBookList.add(lib.getBookList().get(books[i]));
 					System.out.println("Читатель " + readerID + " взял книгу "
-									   + lib.getBookList().get(books[i]).getName()+ " id "+ books[i]);
+									   + lib.getBookList().get(books[i]).getName());
+					lib.getLibrary().remove(books[i]);
 					lib.getLibrary().put(books[i], false);
 					isFree.signal();
+					//lib.getLibrary().put(books[i], false);
 				} else {
 					System.out.println("Читатель " + readerID + " хотел взять книгу "
-							   + lib.getBookList().get(books[i]).getName()+ " id "+ books[i]);
-					isFree.signal();
+							   + lib.getBookList().get(books[i]).getName());
 				}
 		}
 		} finally {
 			
 			lock.unlock();
 		}
+		//System.out.println(bookID.size()+ "  " + readerID);
 		System.out.println(bookID.toString()+ "  " + readerID);
+		//for (Book b: readerBbookList) {
+			//System.out.println(b.getName()+ "  " + readerID);
+		//}
 		if (readerBookList.size() != 0) {
 			try {
 				for(Iterator<Book> bookIter = readerBookList.iterator(); bookIter.hasNext();) {
