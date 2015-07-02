@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
+
 public class Reader extends Thread {
 	
 	private int readerID;
@@ -21,8 +22,9 @@ public class Reader extends Thread {
 		this.readerID =  readerID;
 		this.lock = lock;
 		this.isFree = isFree;
-		this.readerBookList = new ArrayList<Book>();
+		readerBookList = new ArrayList<Book>();
 	}
+	
 	
 	@Override
 	public void run() {
@@ -30,6 +32,7 @@ public class Reader extends Thread {
 		Random random = new Random();
 		HashSet<Integer> bookID = new HashSet<Integer>();
 		int bookCount = new Random().nextInt(6) + 1;
+		System.out.println(readerID +" " + bookCount);
 		if (bookCount > 0) {
 			for(int k = 0; k < bookCount; k++) {
 				int ID = random.nextInt(lib.getLibrary().size());
@@ -61,6 +64,7 @@ public class Reader extends Thread {
 		} finally {
 			lock.unlock();
 		}
+		System.out.println(bookID.toString()+ "  " + readerID);
 		if (readerBookList.size() != 0) {
 			try {
 				for(Iterator<Book> bookIter = readerBookList.iterator(); bookIter.hasNext();) {
@@ -86,7 +90,7 @@ public class Reader extends Thread {
 				}
 				if(readerBookList.size() != 0) {
 					System.out.println("Читатель " + readerID + 
-									   " покинул библиотеку, но у него есть книги, которые он взял домой ");
+									   " покинул библиотеку но у него есть книги, которые он взял домой ");
 					for(Iterator<Book> bookIter = readerBookList.iterator(); bookIter.hasNext();) {
 						Book b = bookIter.next();
 						if(b.isCanTake()) {
@@ -115,7 +119,9 @@ public class Reader extends Thread {
 				 e.printStackTrace();
 			}
 		}
+		
 		System.out.println("Читатель " + readerID + " покинул библиотеку ");
+		
 	}
 	
 	private void returnBook(Book b, String message) {

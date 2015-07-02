@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
+
 public class Reader extends Thread {
 	
 	private int readerID;
@@ -21,8 +22,9 @@ public class Reader extends Thread {
 		this.readerID =  readerID;
 		this.lock = lock;
 		this.isFree = isFree;
-		this.readerBookList = new ArrayList<Book>();
+		readerBookList = new ArrayList<Book>();
 	}
+	
 	
 	@Override
 	public void run() {
@@ -30,6 +32,7 @@ public class Reader extends Thread {
 		Random random = new Random();
 		HashSet<Integer> bookID = new HashSet<Integer>();
 		int bookCount = new Random().nextInt(6) + 1;
+		System.out.println(readerID +" " + bookCount);
 		if (bookCount > 0) {
 			for(int k = 0; k < bookCount; k++) {
 				int ID = random.nextInt(lib.getLibrary().size());
@@ -45,30 +48,30 @@ public class Reader extends Thread {
 			books = bookID.toArray(books);
 			for(int i = 0; i < books.length; i++) {
 				if (lib.getLibrary().get(books[i])) {
-					if(lib.getBookList().get(books[i]).isCanTake()) {
-						lib.getBookList().get(books[i]).setTaken(random.nextBoolean());
-					}
 					readerBookList.add(lib.getBookList().get(books[i]));
 					System.out.println("Читатель " + readerID + " взял книгу "
 									   + lib.getBookList().get(books[i]).getName()+ " id "+ books[i]);
 					lib.getLibrary().put(books[i], false);
+					isFree.signal();
 				} else {
 					System.out.println("Читатель " + readerID + " хотел взять книгу "
 							   + lib.getBookList().get(books[i]).getName()+ " id "+ books[i]);
+					isFree.signal();
 				}
-			}
-		isFree.signal();
+		}
 		} finally {
+			
 			lock.unlock();
 		}
+		System.out.println(bookID.toString()+ "  " + readerID);
 		if (readerBookList.size() != 0) {
 			try {
 				for(Iterator<Book> bookIter = readerBookList.iterator(); bookIter.hasNext();) {
 					Book b = bookIter.next();
-					if(!(b.isCanTake()) || !(b.checkIsTaken())) {
+					if(!(b.isCanTake())) {
 						sleep(random.nextInt(200)+100);
 						if(random.nextBoolean()) {
-							returnBook(b, "в читальный зал ");
+							returnBook(b, "в читальный зал и решил сдать ее сразу ");
 							bookIter.remove();
 						}
 					}
@@ -76,17 +79,16 @@ public class Reader extends Thread {
 				if (readerBookList.size() != 0) {
 					for(Iterator<Book> bookIter = readerBookList.iterator(); bookIter.hasNext();) {
 						Book b = bookIter.next();
-						if(!(b.isCanTake()) || !(b.checkIsTaken())) {
+						if(!(b.isCanTake())) {
 							if(random.nextBoolean()) {
-								returnBook(b, "в читальный зал ");
+								returnBook(b, "в читальный зал сдает все вместе ");
 								bookIter.remove();
 							}
 						}
 					}
 				}
 				if(readerBookList.size() != 0) {
-					System.out.println("Читатель " + readerID + 
-									   " покинул библиотеку, но у него есть книги, которые он взял домой ");
+					System.out.println("Читатель " + readerID + " покинул библиотеку но у него есть книги которые он взял домой ");
 					for(Iterator<Book> bookIter = readerBookList.iterator(); bookIter.hasNext();) {
 						Book b = bookIter.next();
 						if(b.isCanTake()) {
@@ -94,9 +96,9 @@ public class Reader extends Thread {
 							if(random.nextBoolean()) {
 								System.out.println("Читатель " 
 												   + readerID + " пришёл в библиотеку");
-								returnBook(b, "домой ");
+								returnBook(b, "домой из дома припер одну книгу ");
 								bookIter.remove();
-								System.out.println("Читатель " + readerID + " покинул библиотеку");
+								System.out.println("Читатель " + readerID + " покинул библиотеку ушёл сдав 1 книгу из дома");
 							}
 						}
 						
@@ -104,7 +106,7 @@ public class Reader extends Thread {
 				}
 				if(readerBookList.size() != 0) {
 					System.out.println("Читатель " 
-							   + readerID + " пришёл в библиотеку ");
+							   + readerID + " пришёл в библиотеку и припер все книги из дома разом");
 					for(Iterator<Book> bookIter = readerBookList.iterator(); bookIter.hasNext();) {
 						Book b = bookIter.next();
 						returnBook(b, "домой ");
@@ -115,11 +117,13 @@ public class Reader extends Thread {
 				 e.printStackTrace();
 			}
 		}
-		System.out.println("Читатель " + readerID + " покинул библиотеку ");
+		
+		System.out.println("Читатель " + readerID + " покинул библиотеку конец потока ");
+		
 	}
 	
 	private void returnBook(Book b, String message) {
-		lock.lock();
+		lock.tryLock();
 		try {
 			lib.getLibrary().put(b.getID(), true);
 			System.out.println("Читатель " + readerID + 

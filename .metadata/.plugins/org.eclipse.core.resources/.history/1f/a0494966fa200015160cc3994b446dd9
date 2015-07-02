@@ -48,7 +48,7 @@ public class Book {
 		this.id = id;
 	}
 
-	public boolean checkIsTaken() {
+	public boolean getIsTaken() {
 		return isTaken;
 	}
 
