@@ -1,5 +1,0 @@
-1435835918663	Convert local variable 'books' to field
-1435842541187	Rename field 'bookList'
-1435846323722	Rename field 'readerBbookList'
-1435849245795	Encapsulate field 'bookList'
-1435868984496	Encapsulate field 'isTaken'

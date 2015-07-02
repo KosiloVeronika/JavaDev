@@ -1,0 +1,10 @@
+1435835918663	Convert local variable 'books' to field
+1435842541187	Rename field 'bookList'
+1435846323722	Rename field 'readerBbookList'
+1435849245795	Encapsulate field 'bookList'
+1435868984496	Encapsulate field 'isTaken'
+1435870982865	Delete element
+1435870986368	Delete element
+1435871031636	Rename package 'com.epam.multithreading.create'
+1435871044978	Rename package 'com.epam.multithreading.entity'
+1435871061796	Rename package 'com.epam.multithreading.main'
