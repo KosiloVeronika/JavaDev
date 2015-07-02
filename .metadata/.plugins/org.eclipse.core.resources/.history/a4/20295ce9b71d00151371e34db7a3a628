@@ -1,0 +1,30 @@
+package com.epam.multithreading.entity;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+
+public class Reader extends Thread {
+	
+	private Library lib;
+	private Lock lock = new ReentrantLock();
+	
+	@Override
+	public void run() {
+		
+		lock.lock();
+		
+	}
+	private void chooseBook() {
+		
+	}
+	private boolean isAvalible(Book book) {
+		boolean result = false;
+		if(lib.getLibrary().get(book) && book.isCanTake()) {
+			result = true;
+		}
+		return result;
+	}
+	
+
+}

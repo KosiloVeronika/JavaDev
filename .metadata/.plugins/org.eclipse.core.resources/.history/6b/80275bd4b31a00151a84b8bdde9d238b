@@ -1,0 +1,9 @@
+package com.epam.multithreading.create;
+
+public class Creator {
+
+	public Creator() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

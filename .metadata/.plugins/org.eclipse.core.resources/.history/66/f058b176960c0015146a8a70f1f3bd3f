@@ -1,5 +1,0 @@
-package com.epam.newyeargift.dao;
-
-public enum CandiesTagsEnum {
-
-}

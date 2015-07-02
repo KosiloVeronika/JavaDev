@@ -1,0 +1,24 @@
+package com.epam.multithreading.create;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.epam.multithreading.entity.Book;
+import com.epam.multithreading.entity.Library;
+
+public class Creator {
+
+	public static Library CreateLibrary() {
+		HashMap<Integer, Boolean> lib = new HashMap<Integer, Boolean>(4);
+		ArrayList<Book> bookList = new ArrayList<Book>(4);
+		bookList.add(new Book(1,"lolita","Nabokov",true));
+		bookList.add(new Book(2,"Pohoronite menya za plintusom","Pavel Sanaev",true));
+		bookList.add(new Book(3,"Triumfalnaja arka","Remark",true));
+		bookList.add(new Book(4,"History","Inkognito",false));
+		for(int i = 0; i < bookList.size(); i++) {
+			lib.put(bookList.get(i).getID(), true);
+		}
+		return new Library(lib, bookList);
+	}
+
+}

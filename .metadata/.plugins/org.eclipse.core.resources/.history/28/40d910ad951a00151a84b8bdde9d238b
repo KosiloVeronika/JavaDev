@@ -1,0 +1,13 @@
+package com.epam.multithreading.entity;
+
+import java.util.HashMap;
+
+public class Library {
+	
+	private HashMap<Book, boolean> library = new HashMap<Book, boolean>(10);
+
+	public Library() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

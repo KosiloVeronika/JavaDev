@@ -1,0 +1,49 @@
+package com.epam.multithreading.entity;
+
+import java.util.HashSet;
+import java.util.Random;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+
+public class Reader extends Thread {
+	
+	private int readerID;
+	private Library lib;
+	private Lock lock = new ReentrantLock();
+	
+	public Reader(Library lib, int readerID) {
+		this.lib = lib;
+		this.readerID =  readerID;
+	}
+	
+	
+	@Override
+	public void run() {
+		Random random = new Random();
+		HashSet<Integer> bookID = new HashSet<Integer>();
+		int bookCount = new Random().nextInt(5);
+		if (bookCount > 0) {
+			for(int k = 0; k < bookCount; k++) {
+				bookID.add(random.nextInt(lib.getLibrary().size()));
+			}
+		}
+		lock.lock();
+		
+		
+	}
+	
+	private void chooseBook() {
+		
+	}
+	
+	private boolean isAvalible(Book book) {
+		boolean result = false;
+		if(lib.getLibrary().get(book) && book.isCanTake()) {
+			result = true;
+		}
+		return result;
+	}
+	
+
+}

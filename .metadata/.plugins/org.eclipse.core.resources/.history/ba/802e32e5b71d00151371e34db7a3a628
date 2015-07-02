@@ -1,0 +1,24 @@
+package com.epam.multithreading.entity;
+
+
+public class Reader extends Thread {
+	private Library lib;
+	public Reader() {}
+	public void getBook(Library lib) {
+		lib.getLibrary();
+	}
+	@Override
+	public void run() {
+		
+	}
+	
+	private boolean isAvalible(Book book) {
+		boolean result = false;
+		if(lib.getLibrary().get(book) && book.isCanTake()) {
+			result = true;
+		}
+		return result;
+	}
+	
+
+}

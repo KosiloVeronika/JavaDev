@@ -1,0 +1,8 @@
+package com.epam.multithreading.entity;
+
+public class Reader extends Thread {
+
+	public Reader() {
+	}
+
+}

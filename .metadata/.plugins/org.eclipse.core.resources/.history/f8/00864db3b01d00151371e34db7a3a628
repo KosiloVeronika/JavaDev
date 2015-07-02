@@ -1,0 +1,9 @@
+package multithread;
+
+public class Storage implements Iterable<T> {
+
+	public Storage() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

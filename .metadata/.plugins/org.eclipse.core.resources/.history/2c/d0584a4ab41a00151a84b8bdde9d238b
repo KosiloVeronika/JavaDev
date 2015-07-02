@@ -1,0 +1,12 @@
+package com.epam.multithreading.main;
+
+public class Run {
+
+	public Run() {}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

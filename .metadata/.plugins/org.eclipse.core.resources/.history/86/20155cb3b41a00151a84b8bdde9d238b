@@ -1,0 +1,9 @@
+package com.epam.multithreading.entity;
+
+public class Reader {
+
+	public Reader() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

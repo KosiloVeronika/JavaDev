@@ -1,0 +1,15 @@
+package multithread;
+
+public class Truck implements Runnable {
+
+	public Truck() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

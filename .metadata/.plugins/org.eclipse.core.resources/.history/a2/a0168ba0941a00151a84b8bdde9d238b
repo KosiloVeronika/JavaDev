@@ -1,0 +1,12 @@
+package com.epam.multithreading.entity;
+
+
+public class Library {
+	
+	//private HashMap<Book, boolean> library;
+
+	public Library() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

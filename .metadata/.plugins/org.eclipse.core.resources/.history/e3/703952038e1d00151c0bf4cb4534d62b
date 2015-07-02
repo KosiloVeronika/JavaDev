@@ -1,0 +1,21 @@
+package com.epam.multithreading.entity;
+
+import java.util.HashMap;
+
+public class Library {
+	
+	private volatile HashMap<Book, Boolean> library;
+
+	public Library(HashMap<Book, Boolean> library) {
+		setLibrary(library);
+	}
+
+	public HashMap<Book, Boolean> getLibrary() {
+		return library;
+	}
+
+	public void setLibrary(HashMap<Book, Boolean> library) {
+		this.library = library;
+	}
+
+}

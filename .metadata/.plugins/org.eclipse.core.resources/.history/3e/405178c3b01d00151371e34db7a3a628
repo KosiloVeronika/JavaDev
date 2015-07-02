@@ -1,0 +1,17 @@
+package multithread;
+
+import java.util.Iterator;
+
+public class Storage implements Iterable<Item> {
+
+	public Storage() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public Iterator<Item> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

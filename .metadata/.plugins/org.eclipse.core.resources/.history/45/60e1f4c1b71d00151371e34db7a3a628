@@ -1,0 +1,21 @@
+package com.epam.multithreading.entity;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+public class Library {
+	
+	public ConcurrentHashMap<Book, Boolean> library;
+
+	public Library(ConcurrentHashMap<Book, Boolean> library) {
+		setLibrary(library);
+	}
+
+	public ConcurrentHashMap<Book, Boolean> getLibrary() {
+		return library;
+	}
+
+	public void setLibrary(ConcurrentHashMap<Book, Boolean> library) {
+		this.library = library;
+	}
+
+}

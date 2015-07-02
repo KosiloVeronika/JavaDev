@@ -1,0 +1,124 @@
+package com.epam.multithreading.entity;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Random;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+
+public class Reader extends Thread {
+	
+	private int readerID;
+	private Library lib;
+	private Lock lock = new ReentrantLock();
+	private ArrayList<Book> readerBookList;
+	private Integer[] books;
+	
+	public Reader(Library lib, int readerID) {
+		this.lib = lib;
+		this.readerID =  readerID;
+		readerBookList = new ArrayList<Book>();
+	}
+	
+	
+	@Override
+	public void run() {
+		System.out.println("Читатель " + readerID + " пришёл в библиотеку");
+		Random random = new Random();
+		HashSet<Integer> bookID = new HashSet<Integer>();
+		int bookCount = new Random(1).nextInt(6);
+		if (bookCount > 0) {
+			for(int k = 0; k < bookCount; k++) {
+				bookID.add(random.nextInt(lib.getLibrary().size()));
+			}
+		}
+		books = new Integer[bookID.size()];
+		books = bookID.toArray(books);
+		lock.lock();
+		for(int i = 1; i < books.length; i++) {
+			if (lib.getLibrary().get(books[i])) {
+				readerBookList.add(lib.bookList.get(books[i]));
+				System.out.println("Читатель " + readerID + " взял книгу "
+								   + lib.bookList.get(books[i]).getName());
+				lib.getLibrary().put(books[i], false);
+			} else{
+				System.out.println("Читатель " + readerID + " хотел взять книгу "
+						   + lib.bookList.get(books[i]).getName());
+			}
+		}
+		lock.unlock();
+		System.out.println(bookID.size()+ "  " + readerID);
+		//for (Book b: readerBbookList) {
+			//System.out.println(b.getName()+ "  " + readerID);
+		//}
+		if (readerBookList != null) {
+			try {
+				for(Iterator<Book> bookIter = readerBookList.iterator(); bookIter.hasNext();) {
+					Book b = bookIter.next();
+					if(!(b.isCanTake())) {
+						sleep(random.nextInt(70));
+						if(random.nextBoolean()) {
+							returnBook(b, "в читальный зал и решил сдать ее сразу ");
+							bookIter.remove();
+						}
+					}
+				} 
+				if (readerBookList != null) {
+					for(Iterator<Book> bookIter = readerBookList.iterator(); bookIter.hasNext();) {
+						Book b = bookIter.next();
+						if(!(b.isCanTake())) {
+							if(random.nextBoolean()) {
+								returnBook(b, "в читальный зал сдает все вместе ");
+								bookIter.remove();
+							}
+						}
+					}
+				}
+				if(readerBookList != null) {
+					System.out.println("Читатель " + readerID + " покинул библиотеку но у него есть книги которые он взял домой ");
+					for(Iterator<Book> bookIter = readerBookList.iterator(); bookIter.hasNext();) {
+						Book b = bookIter.next();
+						if(b.isCanTake()) {
+							sleep(random.nextInt(400));
+							if(random.nextBoolean()) {
+								System.out.println("Читатель " 
+												   + readerID + " пришёл в библиотеку");
+								returnBook(b, "домой из дома припер одну книгу ");
+								bookIter.remove();
+								System.out.println("Читатель " + readerID + " покинул библиотеку ушёл сдав 1 книгу из дома");
+							}
+						}
+						
+					}
+				}
+				if(readerBookList != null) {
+					System.out.println("Читатель " 
+							   + readerID + " пришёл в библиотеку и припер все книги из дома разом");
+					for(Iterator<Book> bookIter = readerBookList.iterator(); bookIter.hasNext();) {
+						Book b = bookIter.next();
+						returnBook(b, "домой ");
+						bookIter.remove();
+					}
+				}
+			} catch (InterruptedException e) {
+				 e.printStackTrace();
+			}
+		}
+		
+		System.out.println("Читатель " + readerID + " покинул библиотеку конец потока ");
+		
+	}
+	
+	private void returnBook(Book b, String message) {
+		lock.lock();
+		lib.getLibrary().put(b.getID(), true);
+		System.out.println("Читатель " + readerID + 
+					       " сдал книгу, которую брал " + message
+					       + b.getName() + " " + b.getAuthor());
+		lock.unlock();
+	}
+	
+
+}

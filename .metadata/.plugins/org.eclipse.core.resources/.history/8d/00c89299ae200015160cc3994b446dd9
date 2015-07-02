@@ -1,0 +1,13 @@
+package com.epam.multithreading.main;
+
+import com.epam.multithreading.create.Creator;
+import com.epam.multithreading.entity.Library;
+
+public class RunApp {
+
+	public static void main(String[] args) {
+		Library lib = Creator.CreateLibrary();
+		
+	}
+
+}

@@ -1,0 +1,20 @@
+package com.epam.multithreading.create;
+
+import java.util.HashMap;
+
+import com.epam.multithreading.entity.Book;
+import com.epam.multithreading.entity.Library;
+import com.epam.multithreading.entity.Library.Availability;
+
+public class Creator {
+
+	public static Library CreateLibrary() {
+		HashMap<Book, Availability> lib = new HashMap<Book, Availability>(4);
+		lib.put(new Book("lolita","Nabokov",true), Availability.TRUE);
+		lib.put(new Book("Pohoronite menya za plintusom","Pavel Sanaev",true), Availability.TRUE);
+		lib.put(new Book("Triumfalnaja arka","Remark",true), Availability.TRUE);
+		lib.put(new Book("History","Inkognito",false), Availability.TRUE);
+		return new Library(lib);
+	}
+
+}
