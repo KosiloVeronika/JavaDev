@@ -1,0 +1,34 @@
+package com.epam.multithreading.entity;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+
+public class Library {
+	
+	private ConcurrentHashMap<Integer, Boolean> library;
+	private ArrayList<Book> bookList;
+	
+
+	public Library(ConcurrentHashMap<Integer, Boolean> library, ArrayList<Book> bookList) {
+		setLibrary(library);
+		this.setBookList(bookList);
+	}
+
+	public ConcurrentHashMap<Integer, Boolean> getLibrary() {
+		return library;
+	}
+
+	public void setLibrary(ConcurrentHashMap<Integer, Boolean> library) {
+		this.library = library;
+	}
+
+	public ArrayList<Book> getBookList() {
+		return bookList;
+	}
+
+	public void setBookList(ArrayList<Book> bookList) {
+		this.bookList = bookList;
+	}
+
+}

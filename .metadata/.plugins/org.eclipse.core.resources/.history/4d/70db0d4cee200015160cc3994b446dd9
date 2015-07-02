@@ -1,0 +1,29 @@
+package com.epam.multithreading.create;
+
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentHashMap;
+
+import com.epam.multithreading.entity.Book;
+import com.epam.multithreading.entity.Library;
+
+public class Creator {
+
+	public static Library CreateLibrary() {
+		ConcurrentHashMap<Integer, Boolean> lib = new ConcurrentHashMap<Integer, Boolean>(9);
+		ArrayList<Book> bookList = new ArrayList<Book>(9);
+		bookList.add(new Book(1,"Лолита","Набоков",true));
+		bookList.add(new Book(2,"Похороните меня за плинтусом","Павел Санаев",true));
+		bookList.add(new Book(3,"Гарри поттер и филосовский камень","Роулинг",true));
+		bookList.add(new Book(4,"Удушье","Чак Паланик",true));
+		bookList.add(new Book(5,"Триумфальная арка","Ремарк",true));
+		bookList.add(new Book(6,"На западном фронте без перемен","Ремарк",false));
+		bookList.add(new Book(7,"Голова профессора Доуэля","Inkognito",true));
+		bookList.add(new Book(8,"Таинственный остров","Жюль Верн",false));
+		bookList.add(new Book(9,"Избранные Романы","Александр Беляев",false));
+		for(int i = 0; i < bookList.size(); i++) {
+			lib.put(bookList.get(i).getID(), true);
+		}
+		return new Library(lib, bookList);
+	}
+
+}
